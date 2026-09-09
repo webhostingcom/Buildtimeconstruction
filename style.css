@@ -3191,3 +3191,51 @@ a {
     }
 
 }
+
+/* =========================================
+   BUILDTIME VIDEO INSIDE TEXT
+========================================= */
+
+.brand-video-section {
+    width: 100%;
+    min-height: 600px;
+    background: #080909;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#buildtimeTextCanvas {
+    display: block;
+    width: 100%;
+    max-width: 1400px;
+    height: auto;
+}
+
+#buildtimeTextVideo {
+    display: none;
+}
+
+.brand-gold-line {
+    width: 420px;
+    max-width: 60%;
+    height: 2px;
+    margin-top: 60px;
+    background: #c9a45c;
+}
+
+@media (max-width: 700px) {
+    .brand-video-section {
+        min-height: 420px;
+        padding: 80px 10px;
+    }
+
+    .brand-gold-line {
+        width: 220px;
+        margin-top: 40px;
+    }
+}
