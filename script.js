@@ -840,3 +840,75 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+
+/* =========================================
+   BUILDTIME VIDEO INSIDE TEXT
+========================================= */
+
+const buildtimeVideo = document.getElementById("buildtimeTextVideo");
+const buildtimeCanvas = document.getElementById("buildtimeTextCanvas");
+
+if (buildtimeVideo && buildtimeCanvas) {
+
+    const ctx = buildtimeCanvas.getContext("2d");
+
+    function resizeBuildtimeCanvas() {
+        const width = Math.min(window.innerWidth - 40, 1400);
+        const height = width * 0.38;
+
+        const dpr = window.devicePixelRatio || 1;
+
+        buildtimeCanvas.width = width * dpr;
+        buildtimeCanvas.height = height * dpr;
+
+        buildtimeCanvas.style.width = width + "px";
+        buildtimeCanvas.style.height = height + "px";
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawBuildtimeText() {
+
+        const width = buildtimeCanvas.clientWidth;
+        const height = buildtimeCanvas.clientHeight;
+
+        ctx.clearRect(0, 0, width, height);
+
+        /* Draw the video */
+        ctx.drawImage(
+            buildtimeVideo,
+            0,
+            0,
+            width,
+            height
+        );
+
+        /* Keep only the area covered by the text */
+        ctx.globalCompositeOperation = "destination-in";
+
+        ctx.font = `900 ${Math.min(width * 0.17, 230)}px Arial`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+
+        ctx.fillStyle = "#ffffff";
+
+        ctx.fillText(
+            "BUILDTIME",
+            width / 2,
+            height / 2
+        );
+
+        ctx.globalCompositeOperation = "source-over";
+
+        requestAnimationFrame(drawBuildtimeText);
+    }
+
+    buildtimeVideo.addEventListener("loadeddata", () => {
+        resizeBuildtimeCanvas();
+        drawBuildtimeText();
+    });
+
+    window.addEventListener("resize", resizeBuildtimeCanvas);
+
+    resizeBuildtimeCanvas();
+}
