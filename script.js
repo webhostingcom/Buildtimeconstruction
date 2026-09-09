@@ -480,3 +480,363 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+/* =================================================
+       BUILDTIME TEXT VIDEO
+    ================================================= */
+
+    const buildtimeVideo =
+        document.getElementById(
+            "buildtimeTextVideo"
+        );
+
+    const buildtimeCanvas =
+        document.getElementById(
+            "buildtimeTextCanvas"
+        );
+
+
+    if (
+        buildtimeVideo &&
+        buildtimeCanvas
+    ) {
+
+        const ctx =
+            buildtimeCanvas.getContext("2d");
+
+
+        let animationStarted = false;
+
+
+        function resizeBuildtimeCanvas() {
+
+            const rect =
+                buildtimeCanvas.getBoundingClientRect();
+
+            const ratio =
+                window.devicePixelRatio || 1;
+
+
+            buildtimeCanvas.width =
+                rect.width * ratio;
+
+            buildtimeCanvas.height =
+                rect.height * ratio;
+
+
+            ctx.setTransform(
+                ratio,
+                0,
+                0,
+                ratio,
+                0,
+                0
+            );
+
+        }
+
+
+        function drawBuildtimeVideo() {
+
+            const width =
+                buildtimeCanvas.clientWidth;
+
+            const height =
+                buildtimeCanvas.clientHeight;
+
+
+            if (!width || !height) {
+
+                requestAnimationFrame(
+                    drawBuildtimeVideo
+                );
+
+                return;
+
+            }
+
+
+            ctx.clearRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+
+            /* -----------------------------------------
+               TEXT MASK
+            ----------------------------------------- */
+
+            ctx.save();
+
+
+            const fontSize =
+                Math.min(
+                    width * 0.17,
+                    175
+                );
+
+
+            ctx.font =
+                `700 ${fontSize}px "DM Sans", sans-serif`;
+
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            ctx.fillStyle = "#000";
+
+
+            ctx.fillText(
+                "BUILDTIME",
+                width / 2,
+                height / 2
+            );
+
+
+            /* -----------------------------------------
+               KEEP VIDEO ONLY INSIDE TEXT
+            ----------------------------------------- */
+
+            ctx.globalCompositeOperation =
+                "source-in";
+
+
+            if (
+                buildtimeVideo.readyState >= 2 &&
+                buildtimeVideo.videoWidth &&
+                buildtimeVideo.videoHeight
+            ) {
+
+                const videoWidth =
+                    buildtimeVideo.videoWidth;
+
+                const videoHeight =
+                    buildtimeVideo.videoHeight;
+
+
+                const videoRatio =
+                    videoWidth / videoHeight;
+
+                const canvasRatio =
+                    width / height;
+
+
+                let drawWidth;
+                let drawHeight;
+                let offsetX;
+                let offsetY;
+
+
+                if (
+                    videoRatio > canvasRatio
+                ) {
+
+                    drawHeight = height;
+
+                    drawWidth =
+                        height * videoRatio;
+
+                    offsetX =
+                        (width - drawWidth) / 2;
+
+                    offsetY = 0;
+
+                } else {
+
+                    drawWidth = width;
+
+                    drawHeight =
+                        width / videoRatio;
+
+                    offsetX = 0;
+
+                    offsetY =
+                        (height - drawHeight) / 2;
+
+                }
+
+
+                ctx.drawImage(
+                    buildtimeVideo,
+                    offsetX,
+                    offsetY,
+                    drawWidth,
+                    drawHeight
+                );
+
+            }
+
+
+            ctx.restore();
+
+
+            requestAnimationFrame(
+                drawCynosureVideo
+            );
+
+        }
+
+
+        function startCynosureVideo() {
+
+            resizebuildtimeCanvas();
+
+            buildtimeVideo.play()
+                .catch(() => {});
+
+
+            if (!animationStarted) {
+
+                animationStarted = true;
+
+                requestAnimationFrame(
+                    drawBuildtimeVideo
+                );
+
+            }
+
+        }
+
+
+        buildtimeVideo.addEventListener(
+            "loadeddata",
+            startBuildtimeVideo
+        );
+
+
+        window.addEventListener(
+            "resize",
+            resizebuildtimeCanvas
+        );
+
+
+        if (
+            buildtimeVideo.readyState >= 2
+        ) {
+
+            startBuildtimeVideo();
+
+        }
+
+    }
+
+
+    /* =================================================
+       NUMBER COUNTERS
+    ================================================= */
+
+    const counters =
+        document.querySelectorAll(
+            ".stat-number"
+        );
+
+
+    function startCounter(counter) {
+
+        const target =
+            Number(
+                counter.dataset.target
+            );
+
+
+        if (!Number.isFinite(target)) {
+            return;
+        }
+
+
+        const duration = 1600;
+
+        const start =
+            performance.now();
+
+
+        function update(currentTime) {
+
+            const progress =
+                Math.min(
+                    (currentTime - start) /
+                    duration,
+                    1
+                );
+
+
+            const eased =
+                1 -
+                Math.pow(
+                    1 - progress,
+                    3
+                );
+
+
+            const value =
+                Math.floor(
+                    target * eased
+                );
+
+
+            counter.textContent =
+                value;
+
+
+            if (progress < 1) {
+
+                requestAnimationFrame(
+                    update
+                );
+
+            } else {
+
+                counter.textContent =
+                    target;
+
+            }
+
+        }
+
+
+        requestAnimationFrame(update);
+
+    }
+
+
+    if (counters.length) {
+
+        const counterObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            startCounter(
+                                entry.target
+                            );
+
+                            counterObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.5
+                }
+            );
+
+
+        counters.forEach(counter => {
+
+            counterObserver.observe(
+                counter
+            );
+
+        });
+
+    }
