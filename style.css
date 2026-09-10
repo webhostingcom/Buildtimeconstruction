@@ -1,5 +1,5 @@
 /* =========================================
-   BUILDTIME CONSTRUCTION
+   WALLFORM CONSTRUCTION
    MAIN STYLESHEET
 ========================================= */
 
@@ -3193,7 +3193,7 @@ a {
 }
 
 /* =========================================
-   BUILDTIME VIDEO INSIDE TEXT
+   WALLFORM VIDEO INSIDE TEXT
 ========================================= */
 
 .brand-video-section {
@@ -3209,14 +3209,14 @@ a {
     overflow: hidden;
 }
 
-#buildtimeTextCanvas {
+#wallformTextCanvas {
     display: block;
     width: 100%;
     max-width: 1400px;
     height: auto;
 }
 
-#buildtimeTextVideo {
+#wallformTextVideo {
     display: none;
 }
 
@@ -3520,7 +3520,7 @@ a {
 }
 
 /* =========================================
-   BUILDTIME — COMPACT TYPOGRAPHY SCALE
+   WALLFORM — COMPACT TYPOGRAPHY SCALE
 ========================================= */
 
 /* MAIN SECTION HEADINGS */
