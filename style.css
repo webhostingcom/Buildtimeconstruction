@@ -3928,3 +3928,63 @@ a {
     }
 
 }
+
+/* =========================================
+   FINAL MOBILE TESTIMONIAL + SOCIAL SIZE
+========================================= */
+
+@media (max-width: 700px) {
+
+    /* TESTIMONIAL CARDS */
+    .testimonial-card {
+        width: 78vw !important;
+        height: 360px !important;
+        min-height: 0 !important;
+        padding: 30px 26px !important;
+        border-radius: 20px !important;
+    }
+
+    .testimonial-stars {
+        font-size: 17px !important;
+        letter-spacing: 3px !important;
+    }
+
+    .testimonial-quote {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+
+    .testimonial-client {
+        gap: 14px !important;
+    }
+
+    .testimonial-client img {
+        width: 55px !important;
+        height: 55px !important;
+    }
+
+    .testimonial-client h4 {
+        font-size: 16px !important;
+    }
+
+    .testimonial-client span {
+        font-size: 13px !important;
+    }
+
+
+    /* SOCIAL MEDIA CIRCLES */
+    .social-icon {
+        width: 82px !important;
+        height: 82px !important;
+    }
+
+    .social-icon svg {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .social-links {
+        gap: 16px !important;
+    }
+
+}
