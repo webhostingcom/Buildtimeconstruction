@@ -395,7 +395,7 @@ a {
 /* GOLD BUTTON */
 
 .primary-button {
-    background: var(--gold);
+    background: var(--amber);
     color: #080909;
 
     box-shadow:
@@ -405,7 +405,7 @@ a {
 
 .primary-button:hover,
 .primary-button:active {
-    background: var(--gold-light);
+    background: var(--amber-light);
 
     transform: translateY(-3px);
 
@@ -427,7 +427,7 @@ a {
 .secondary-button:active {
     border-color: var(--gold-light);
 
-    color: var(--gold-light);
+    color: var(--amber-light);
 
     transform: translateY(-3px);
 
