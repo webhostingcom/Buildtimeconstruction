@@ -4091,3 +4091,17 @@ a {
     }
 
 }
+
+/* =========================================
+   HIDE WALLFORM TEXT SOURCE VIDEO
+========================================= */
+
+#wallformTextVideo {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
