@@ -818,3 +818,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+
+    /* =================================================
+       TESTIMONIALS
+    ================================================= */
+
+    autoMoveCards(
+        ".testimonials-section .horizontal-wrapper",
+        0.25
+    );
