@@ -3988,3 +3988,78 @@ a {
     }
 
 }
+
+/* =========================================
+   TESTIMONIAL + SOCIAL — COMPACT MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    /* TESTIMONIAL CARD */
+    .testimonial-card {
+        width: 390px !important;
+        max-width: 390px !important;
+        height: 300px !important;
+        min-height: 300px !important;
+
+        padding: 25px 28px !important;
+
+        border-radius: 18px !important;
+    }
+
+    /* STARS */
+    .testimonial-stars {
+        font-size: 15px !important;
+        letter-spacing: 3px !important;
+    }
+
+    /* QUOTE */
+    .testimonial-quote {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        margin: 20px 0 !important;
+    }
+
+    /* CLIENT */
+    .testimonial-client {
+        gap: 12px !important;
+    }
+
+    .testimonial-client img {
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    .testimonial-client h4 {
+        font-size: 15px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .testimonial-client span {
+        font-size: 12px !important;
+    }
+
+
+    /* =========================================
+       SOCIAL ICONS
+    ========================================= */
+
+    .social-section {
+        padding: 35px 0 !important;
+    }
+
+    .social-links {
+        gap: 12px !important;
+    }
+
+    .social-icon {
+        width: 72px !important;
+        height: 72px !important;
+    }
+
+    .social-icon svg {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+}
