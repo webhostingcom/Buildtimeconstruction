@@ -23,31 +23,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 isOpen ? "true" : "false"
             );
 
-            // Change hamburger into X
             const lines = menuButton.querySelectorAll("span");
 
-            if (isOpen) {
+            if (lines.length >= 3) {
 
-                lines[0].style.transform =
-                    "translateY(7px) rotate(45deg)";
+                if (isOpen) {
 
-                lines[1].style.opacity = "0";
+                    lines[0].style.transform =
+                        "translateY(7px) rotate(45deg)";
 
-                lines[2].style.transform =
-                    "translateY(-7px) rotate(-45deg)";
+                    lines[1].style.opacity = "0";
 
-            } else {
+                    lines[2].style.transform =
+                        "translateY(-7px) rotate(-45deg)";
 
-                lines[0].style.transform = "";
-                lines[1].style.opacity = "";
-                lines[2].style.transform = "";
+                } else {
 
+                    lines[0].style.transform = "";
+                    lines[1].style.opacity = "";
+                    lines[2].style.transform = "";
+
+                }
             }
 
         });
 
 
-        // Close mobile menu after clicking a link
         const mobileLinks =
             mobileMenu.querySelectorAll("a");
 
@@ -65,9 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 const lines =
                     menuButton.querySelectorAll("span");
 
-                lines[0].style.transform = "";
-                lines[1].style.opacity = "";
-                lines[2].style.transform = "";
+                if (lines.length >= 3) {
+
+                    lines[0].style.transform = "";
+                    lines[1].style.opacity = "";
+                    lines[2].style.transform = "";
+
+                }
 
             });
 
@@ -78,10 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
        SERVICE ACCORDIONS
+       SECOND WHAT WE DO SECTION
     ========================================== */
 
     const serviceCards =
-        document.querySelectorAll(".service-card");
+        document.querySelectorAll(
+            "#second-services .service-card"
+        );
 
     serviceCards.forEach((card) => {
 
@@ -95,14 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const wasActive =
                 card.classList.contains("active");
 
-
-            // Close all service cards
             serviceCards.forEach((item) => {
                 item.classList.remove("active");
             });
 
-
-            // Open clicked card
             if (!wasActive) {
                 card.classList.add("active");
             }
@@ -113,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       OWNERSHIP GUIDANCE ACCORDIONS
+       BUILD WITH CONFIDENCE ACCORDIONS
     ========================================== */
 
     const guideItems =
@@ -131,14 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const wasActive =
                 item.classList.contains("active");
 
-
-            // Close all
             guideItems.forEach((guide) => {
                 guide.classList.remove("active");
             });
 
-
-            // Open selected
             if (!wasActive) {
                 item.classList.add("active");
             }
@@ -158,7 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressBar =
         document.getElementById("formProgress");
 
-
     if (quoteForm && progressBar) {
 
         const fields =
@@ -166,8 +165,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 "input:not([type='hidden']), select, textarea"
             );
 
-
         function updateProgress() {
+
+            if (!fields.length) {
+                progressBar.style.width = "0%";
+                return;
+            }
 
             let completed = 0;
 
@@ -179,7 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             });
 
-
             const percentage =
                 (completed / fields.length) * 100;
 
@@ -187,7 +189,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 percentage + "%";
 
         }
-
 
         fields.forEach((field) => {
 
@@ -203,7 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
-
         updateProgress();
 
 
@@ -218,41 +218,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.preventDefault();
 
                 const submitButton =
-                    quoteForm.querySelector(
-                        ".submit-button"
-                    );
+                    quoteForm.querySelector(".submit-button");
 
                 const message =
-                    document.getElementById(
-                        "formMessage"
-                    );
-
+                    document.getElementById("formMessage");
 
                 if (!submitButton || !message) {
                     return;
                 }
 
-
                 const originalText =
                     submitButton.innerHTML;
 
-
                 submitButton.disabled = true;
-
-                submitButton.innerHTML =
-                    "Sending...";
-
+                submitButton.innerHTML = "Sending...";
 
                 message.textContent = "";
-
                 message.style.color = "";
-
 
                 try {
 
                     const formData =
                         new FormData(quoteForm);
-
 
                     const response =
                         await fetch(
@@ -267,56 +254,44 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         );
 
-
-                    if (response.ok) {
-
-                        message.textContent =
-                            "Thank you. Your request has been sent successfully.";
-
-                        message.style.color =
-                            "#3d8b40";
-
-
-                        quoteForm.reset();
-
-                        updateProgress();
-
-
-                        submitButton.innerHTML =
-                            "Request Sent ✓";
-
-
-                        setTimeout(() => {
-
-                            submitButton.innerHTML =
-                                originalText;
-
-                            submitButton.disabled =
-                                false;
-
-                        }, 4000);
-
-
-                    } else {
-
+                    if (!response.ok) {
                         throw new Error(
                             "Form submission failed."
                         );
-
                     }
 
+                    message.textContent =
+                        "Thank you. Your request has been sent successfully.";
+
+                    message.style.color =
+                        "#3d8b40";
+
+                    quoteForm.reset();
+
+                    updateProgress();
+
+                    submitButton.innerHTML =
+                        "Request Sent ✓";
+
+                    setTimeout(() => {
+
+                        submitButton.innerHTML =
+                            originalText;
+
+                        submitButton.disabled =
+                            false;
+
+                    }, 4000);
 
                 } catch (error) {
 
                     console.error(error);
-
 
                     message.textContent =
                         "Something went wrong. Please try again or call us directly.";
 
                     message.style.color =
                         "#b42318";
-
 
                     submitButton.innerHTML =
                         originalText;
@@ -341,7 +316,6 @@ document.addEventListener("DOMContentLoaded", () => {
             'a[href^="#"]'
         );
 
-
     internalLinks.forEach((link) => {
 
         link.addEventListener("click", (event) => {
@@ -356,34 +330,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-
             const target =
                 document.querySelector(targetId);
-
 
             if (!target) {
                 return;
             }
 
-
             event.preventDefault();
-
 
             const navbar =
                 document.querySelector(".navbar");
-
 
             const navbarHeight =
                 navbar
                     ? navbar.offsetHeight
                     : 0;
 
-
             const targetPosition =
                 target.getBoundingClientRect().top +
                 window.scrollY -
                 navbarHeight;
-
 
             window.scrollTo({
                 top: targetPosition,
@@ -401,7 +368,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const navbar =
         document.querySelector(".navbar");
-
 
     if (navbar) {
 
@@ -435,7 +401,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const images =
         document.querySelectorAll("img");
 
-
     images.forEach((image) => {
 
         image.addEventListener(
@@ -457,12 +422,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       VIDEO FALLBACK
+       HERO / BACKGROUND VIDEO FALLBACK
     ========================================== */
 
     const video =
         document.querySelector(".video-section video");
-
 
     if (video) {
 
@@ -479,11 +443,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-});
 
-/* =================================================
-       BUILDTIME TEXT VIDEO
-    ================================================= */
+    /* =========================================
+       BUILDTIME VIDEO INSIDE TEXT
+    ========================================== */
 
     const buildtimeVideo =
         document.getElementById(
@@ -495,7 +458,6 @@ document.addEventListener("DOMContentLoaded", () => {
             "buildtimeTextCanvas"
         );
 
-
     if (
         buildtimeVideo &&
         buildtimeCanvas
@@ -504,31 +466,40 @@ document.addEventListener("DOMContentLoaded", () => {
         const ctx =
             buildtimeCanvas.getContext("2d");
 
-
         let animationStarted = false;
 
 
         function resizeBuildtimeCanvas() {
 
-            const rect =
-                buildtimeCanvas.getBoundingClientRect();
+            const width =
+                Math.min(
+                    window.innerWidth - 40,
+                    1400
+                );
 
-            const ratio =
+            const height =
+                width * 0.38;
+
+            const dpr =
                 window.devicePixelRatio || 1;
 
-
             buildtimeCanvas.width =
-                rect.width * ratio;
+                width * dpr;
 
             buildtimeCanvas.height =
-                rect.height * ratio;
+                height * dpr;
 
+            buildtimeCanvas.style.width =
+                width + "px";
+
+            buildtimeCanvas.style.height =
+                height + "px";
 
             ctx.setTransform(
-                ratio,
+                dpr,
                 0,
                 0,
-                ratio,
+                dpr,
                 0,
                 0
             );
@@ -536,7 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        function drawBuildtimeVideo() {
+        function drawBuildtimeText() {
 
             const width =
                 buildtimeCanvas.clientWidth;
@@ -544,15 +515,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const height =
                 buildtimeCanvas.clientHeight;
 
-
             if (!width || !height) {
-
                 requestAnimationFrame(
-                    drawBuildtimeVideo
+                    drawBuildtimeText
                 );
-
                 return;
-
             }
 
 
@@ -565,27 +532,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* -----------------------------------------
-               TEXT MASK
+               DRAW BUILDTIME TEXT FIRST
             ----------------------------------------- */
 
             ctx.save();
 
-
             const fontSize =
                 Math.min(
-                    width * 0.17,
-                    175
+                    width * 0.18,
+                    230
                 );
 
-
             ctx.font =
-                `700 ${fontSize}px "DM Sans", sans-serif`;
+                `900 ${fontSize}px Arial, sans-serif`;
 
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
+            ctx.textAlign =
+                "center";
 
-            ctx.fillStyle = "#000";
+            ctx.textBaseline =
+                "middle";
 
+            ctx.fillStyle =
+                "#ffffff";
 
             ctx.fillText(
                 "BUILDTIME",
@@ -593,9 +561,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 height / 2
             );
 
+            ctx.restore();
+
 
             /* -----------------------------------------
-               KEEP VIDEO ONLY INSIDE TEXT
+               VIDEO ONLY INSIDE THE TEXT
             ----------------------------------------- */
 
             ctx.globalCompositeOperation =
@@ -604,8 +574,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (
                 buildtimeVideo.readyState >= 2 &&
-                buildtimeVideo.videoWidth &&
-                buildtimeVideo.videoHeight
+                buildtimeVideo.videoWidth > 0 &&
+                buildtimeVideo.videoHeight > 0
             ) {
 
                 const videoWidth =
@@ -614,13 +584,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const videoHeight =
                     buildtimeVideo.videoHeight;
 
-
                 const videoRatio =
                     videoWidth / videoHeight;
 
                 const canvasRatio =
                     width / height;
-
 
                 let drawWidth;
                 let drawHeight;
@@ -632,7 +600,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     videoRatio > canvasRatio
                 ) {
 
-                    drawHeight = height;
+                    drawHeight =
+                        height;
 
                     drawWidth =
                         height * videoRatio;
@@ -640,16 +609,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     offsetX =
                         (width - drawWidth) / 2;
 
-                    offsetY = 0;
+                    offsetY =
+                        0;
 
                 } else {
 
-                    drawWidth = width;
+                    drawWidth =
+                        width;
 
                     drawHeight =
                         width / videoRatio;
 
-                    offsetX = 0;
+                    offsetX =
+                        0;
 
                     offsetY =
                         (height - drawHeight) / 2;
@@ -668,21 +640,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            ctx.restore();
+            ctx.globalCompositeOperation =
+                "source-over";
 
 
             requestAnimationFrame(
-                drawCynosureVideo
+                drawBuildtimeText
             );
 
         }
 
 
-        function startCynosureVideo() {
+        function startBuildtimeVideo() {
 
-            resizebuildtimeCanvas();
+            resizeBuildtimeCanvas();
 
-            buildtimeVideo.play()
+            buildtimeVideo
+                .play()
                 .catch(() => {});
 
 
@@ -691,7 +665,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 animationStarted = true;
 
                 requestAnimationFrame(
-                    drawBuildtimeVideo
+                    drawBuildtimeText
                 );
 
             }
@@ -705,10 +679,19 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
+        buildtimeVideo.addEventListener(
+            "canplay",
+            startBuildtimeVideo
+        );
+
+
         window.addEventListener(
             "resize",
-            resizebuildtimeCanvas
+            resizeBuildtimeCanvas
         );
+
+
+        resizeBuildtimeCanvas();
 
 
         if (
@@ -722,15 +705,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =================================================
+    /* =========================================
        NUMBER COUNTERS
-    ================================================= */
+    ========================================== */
 
     const counters =
         document.querySelectorAll(
             ".stat-number"
         );
-
 
     function startCounter(counter) {
 
@@ -739,17 +721,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 counter.dataset.target
             );
 
-
         if (!Number.isFinite(target)) {
             return;
         }
-
 
         const duration = 1600;
 
         const start =
             performance.now();
-
 
         function update(currentTime) {
 
@@ -760,7 +739,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     1
                 );
 
-
             const eased =
                 1 -
                 Math.pow(
@@ -768,16 +746,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     3
                 );
 
-
             const value =
                 Math.floor(
                     target * eased
                 );
 
-
             counter.textContent =
                 value;
-
 
             if (progress < 1) {
 
@@ -794,8 +769,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-
-        requestAnimationFrame(update);
+        requestAnimationFrame(
+            update
+        );
 
     }
 
@@ -804,9 +780,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const counterObserver =
             new IntersectionObserver(
-                entries => {
+                (entries) => {
 
-                    entries.forEach(entry => {
+                    entries.forEach((entry) => {
 
                         if (
                             entry.isIntersecting
@@ -831,7 +807,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-        counters.forEach(counter => {
+        counters.forEach((counter) => {
 
             counterObserver.observe(
                 counter
@@ -841,74 +817,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-/* =========================================
-   BUILDTIME VIDEO INSIDE TEXT
-========================================= */
-
-const buildtimeVideo = document.getElementById("buildtimeTextVideo");
-const buildtimeCanvas = document.getElementById("buildtimeTextCanvas");
-
-if (buildtimeVideo && buildtimeCanvas) {
-
-    const ctx = buildtimeCanvas.getContext("2d");
-
-    function resizeBuildtimeCanvas() {
-        const width = Math.min(window.innerWidth - 40, 1400);
-        const height = width * 0.38;
-
-        const dpr = window.devicePixelRatio || 1;
-
-        buildtimeCanvas.width = width * dpr;
-        buildtimeCanvas.height = height * dpr;
-
-        buildtimeCanvas.style.width = width + "px";
-        buildtimeCanvas.style.height = height + "px";
-
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-
-    function drawBuildtimeText() {
-
-        const width = buildtimeCanvas.clientWidth;
-        const height = buildtimeCanvas.clientHeight;
-
-        ctx.clearRect(0, 0, width, height);
-
-        /* Draw the video */
-        ctx.drawImage(
-            buildtimeVideo,
-            0,
-            0,
-            width,
-            height
-        );
-
-        /* Keep only the area covered by the text */
-        ctx.globalCompositeOperation = "destination-in";
-
-        ctx.font = `900 ${Math.min(width * 0.17, 230)}px Arial`;
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-
-        ctx.fillStyle = "#ffffff";
-
-        ctx.fillText(
-            "BUILDTIME",
-            width / 2,
-            height / 2
-        );
-
-        ctx.globalCompositeOperation = "source-over";
-
-        requestAnimationFrame(drawBuildtimeText);
-    }
-
-    buildtimeVideo.addEventListener("loadeddata", () => {
-        resizeBuildtimeCanvas();
-        drawBuildtimeText();
-    });
-
-    window.addEventListener("resize", resizeBuildtimeCanvas);
-
-    resizeBuildtimeCanvas();
-}
+});
