@@ -4063,3 +4063,31 @@ a {
     }
 
 }
+
+/* =========================================
+   FINAL MOBILE SIZE ADJUSTMENTS
+========================================= */
+
+@media (max-width: 700px) {
+
+    /* TESTIMONIAL CARD — NARROWER */
+    .testimonial-card {
+        width: 320px !important;
+        max-width: 320px !important;
+        height: 300px !important;
+        min-height: 300px !important;
+    }
+
+
+    /* HERO TEXT — BIGGER AGAIN */
+    .hero h1 {
+        font-size: 52px !important;
+        line-height: 0.98 !important;
+    }
+
+    .hero p {
+        font-size: 17px !important;
+        line-height: 1.6 !important;
+    }
+
+}
