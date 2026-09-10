@@ -1,5 +1,5 @@
 /* =========================================
-   wallform CONSTRUCTION
+   WALLFORM CONSTRUCTION
    MAIN JAVASCRIPT
 ========================================= */
 
@@ -27,32 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (lines.length >= 3) {
 
-                if (isOpen) {
+                lines[0].style.transform =
+                    isOpen ? "translateY(7px) rotate(45deg)" : "";
 
-                    lines[0].style.transform =
-                        "translateY(7px) rotate(45deg)";
+                lines[1].style.opacity =
+                    isOpen ? "0" : "";
 
-                    lines[1].style.opacity = "0";
-
-                    lines[2].style.transform =
-                        "translateY(-7px) rotate(-45deg)";
-
-                } else {
-
-                    lines[0].style.transform = "";
-                    lines[1].style.opacity = "";
-                    lines[2].style.transform = "";
-
-                }
+                lines[2].style.transform =
+                    isOpen ? "translateY(-7px) rotate(-45deg)" : "";
             }
-
         });
 
-
-        const mobileLinks =
-            mobileMenu.querySelectorAll("a");
-
-        mobileLinks.forEach((link) => {
+        mobileMenu.querySelectorAll("a").forEach((link) => {
 
             link.addEventListener("click", () => {
 
@@ -63,45 +49,37 @@ document.addEventListener("DOMContentLoaded", () => {
                     "false"
                 );
 
-                const lines =
-                    menuButton.querySelectorAll("span");
+                const lines = menuButton.querySelectorAll("span");
 
                 if (lines.length >= 3) {
-
                     lines[0].style.transform = "";
                     lines[1].style.opacity = "";
                     lines[2].style.transform = "";
-
                 }
 
             });
 
         });
-
     }
 
 
     /* =========================================
        SERVICE ACCORDIONS
-       SECOND WHAT WE DO SECTION
-    ========================================== */
+    ========================================= */
 
-    const serviceCards =
-        document.querySelectorAll(
-            "#second-services .service-card"
-        );
+    const serviceCards = document.querySelectorAll(
+        "#second-services .service-card"
+    );
 
     serviceCards.forEach((card) => {
 
-        const header =
-            card.querySelector(".service-header");
+        const header = card.querySelector(".service-header");
 
         if (!header) return;
 
         header.addEventListener("click", () => {
 
-            const wasActive =
-                card.classList.contains("active");
+            const wasActive = card.classList.contains("active");
 
             serviceCards.forEach((item) => {
                 item.classList.remove("active");
@@ -118,22 +96,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
        BUILD WITH CONFIDENCE ACCORDIONS
-    ========================================== */
+    ========================================= */
 
-    const guideItems =
-        document.querySelectorAll(".guide-item");
+    const guideItems = document.querySelectorAll(".guide-item");
 
     guideItems.forEach((item) => {
 
-        const header =
-            item.querySelector(".guide-header");
+        const header = item.querySelector(".guide-header");
 
         if (!header) return;
 
         header.addEventListener("click", () => {
 
-            const wasActive =
-                item.classList.contains("active");
+            const wasActive = item.classList.contains("active");
 
             guideItems.forEach((guide) => {
                 guide.classList.remove("active");
@@ -149,8 +124,105 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
+       BUTTONS + SMOOTH SCROLL
+    ========================================= */
+
+    const internalLinks = document.querySelectorAll(
+        'a[href^="#"]'
+    );
+
+    internalLinks.forEach((link) => {
+
+        link.addEventListener("click", (event) => {
+
+            const targetId = link.getAttribute("href");
+
+            if (!targetId || targetId === "#") {
+                return;
+            }
+
+            let target = null;
+
+            try {
+                target = document.querySelector(targetId);
+            } catch (error) {
+                console.warn(
+                    "Invalid button/link target:",
+                    targetId
+                );
+                return;
+            }
+
+            if (!target) {
+                console.warn(
+                    "Button target not found:",
+                    targetId
+                );
+                return;
+            }
+
+            event.preventDefault();
+
+            const navbar = document.querySelector(".navbar");
+
+            const navbarHeight = navbar
+                ? navbar.offsetHeight
+                : 0;
+
+            const targetPosition =
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                navbarHeight -
+                10;
+
+            window.scrollTo({
+                top: Math.max(0, targetPosition),
+                behavior: "smooth"
+            });
+
+        });
+
+    });
+
+
+    /* =========================================
+       NAVBAR SCROLL EFFECT
+    ========================================= */
+
+    const navbar = document.querySelector(".navbar");
+
+    function updateNavbar() {
+
+        if (!navbar) return;
+
+        if (window.scrollY > 40) {
+
+            navbar.style.background =
+                "rgba(5, 5, 5, 0.97)";
+
+        } else {
+
+            navbar.style.background =
+                "rgba(8, 8, 8, 0.9)";
+        }
+    }
+
+    if (navbar) {
+
+        updateNavbar();
+
+        window.addEventListener(
+            "scroll",
+            updateNavbar,
+            { passive: true }
+        );
+
+    }
+
+
+    /* =========================================
        QUOTE FORM PROGRESS
-    ========================================== */
+    ========================================= */
 
     const quoteForm =
         document.getElementById("quoteForm");
@@ -160,10 +232,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (quoteForm && progressBar) {
 
-        const fields =
-            quoteForm.querySelectorAll(
-                "input:not([type='hidden']), select, textarea"
-            );
+        const fields = quoteForm.querySelectorAll(
+            "input:not([type='hidden']), select, textarea"
+        );
 
         function updateProgress() {
 
@@ -176,7 +247,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             fields.forEach((field) => {
 
-                if (field.value.trim() !== "") {
+                if (
+                    field.value &&
+                    field.value.trim() !== ""
+                ) {
                     completed++;
                 }
 
@@ -187,7 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             progressBar.style.width =
                 percentage + "%";
-
         }
 
         fields.forEach((field) => {
@@ -208,8 +281,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* =========================================
-           FORMSPREE SUBMISSION
-        ========================================== */
+           FORMSPREE
+        ========================================= */
 
         quoteForm.addEventListener(
             "submit",
@@ -237,6 +310,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 message.style.color = "";
 
                 try {
+
+                    if (
+                        !quoteForm.action ||
+                        quoteForm.action.includes("YOUR_FORM_ID")
+                    ) {
+                        throw new Error(
+                            "Formspree form URL has not been configured."
+                        );
+                    }
 
                     const formData =
                         new FormData(quoteForm);
@@ -303,59 +385,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
-
     }
 
 
     /* =========================================
-       SMOOTH SCROLL
-    ========================================== */
+       IMAGE ERROR HANDLING
+    ========================================= */
 
-    const internalLinks =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
+    document.querySelectorAll("img").forEach((image) => {
 
-    internalLinks.forEach((link) => {
+        image.addEventListener("error", () => {
 
-        link.addEventListener("click", (event) => {
+            console.warn(
+                "Image could not be loaded:",
+                image.src
+            );
 
-            const targetId =
-                link.getAttribute("href");
-
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-                return;
-            }
-
-            const target =
-                document.querySelector(targetId);
-
-            if (!target) {
-                return;
-            }
-
-            event.preventDefault();
-
-            const navbar =
-                document.querySelector(".navbar");
-
-            const navbarHeight =
-                navbar
-                    ? navbar.offsetHeight
-                    : 0;
-
-            const targetPosition =
-                target.getBoundingClientRect().top +
-                window.scrollY -
-                navbarHeight;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth"
-            });
+            image.style.background = "#222";
 
         });
 
@@ -363,74 +409,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       NAVBAR SCROLL EFFECT
-    ========================================== */
+       HERO / BACKGROUND VIDEO
+    ========================================= */
 
-    const navbar =
-        document.querySelector(".navbar");
-
-    if (navbar) {
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                if (window.scrollY > 40) {
-
-                    navbar.style.background =
-                        "rgba(5, 5, 5, 0.97)";
-
-                } else {
-
-                    navbar.style.background =
-                        "rgba(8, 8, 8, 0.9)";
-
-                }
-
-            },
-            { passive: true }
-        );
-
-    }
-
-
-    /* =========================================
-       IMAGE ERROR HANDLING
-    ========================================== */
-
-    const images =
-        document.querySelectorAll("img");
-
-    images.forEach((image) => {
-
-        image.addEventListener(
-            "error",
-            () => {
-
-                console.warn(
-                    "Image could not be loaded:",
-                    image.src
-                );
-
-                image.style.background =
-                    "#222";
-
-            }
-        );
-
-    });
-
-
-    /* =========================================
-       HERO / BACKGROUND VIDEO FALLBACK
-    ========================================== */
-
-    const video =
+    const heroVideo =
         document.querySelector(".video-section video");
 
-    if (video) {
+    if (heroVideo) {
 
-        video.addEventListener(
+        heroVideo.addEventListener(
             "error",
             () => {
 
@@ -445,1054 +432,261 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       wallform VIDEO INSIDE TEXT
-    ========================================== */
+       WALLFORM VIDEO INSIDE TEXT
+    ========================================= */
 
     const wallformVideo =
-        document.getElementById(
-            "wallformTextVideo"
-        );
+        document.getElementById("wallformTextVideo");
 
     const wallformCanvas =
-        document.getElementById(
-            "wallformTextCanvas"
-        );
+        document.getElementById("wallformTextCanvas");
 
-    if (
-        wallformVideo &&
-        wallformCanvas
-    ) {
+    if (wallformVideo && wallformCanvas) {
 
         const ctx =
             wallformCanvas.getContext("2d");
 
-        let animationStarted = false;
+        if (ctx) {
+
+            let animationStarted = false;
 
 
-        function resizeWallformCanvas() {
+            function resizeWallformCanvas() {
 
-            const width =
-                Math.min(
-                    window.innerWidth - 40,
-                    1400
-                );
+                const width =
+                    Math.min(
+                        Math.max(window.innerWidth - 40, 280),
+                        1400
+                    );
 
-            const height =
-                width * 0.38;
+                const height =
+                    width * 0.38;
 
-            const dpr =
-                window.devicePixelRatio || 1;
+                const dpr =
+                    Math.min(
+                        window.devicePixelRatio || 1,
+                        2
+                    );
 
-            wallformCanvas.width =
-                width * dpr;
+                wallformCanvas.width =
+                    Math.floor(width * dpr);
 
-            wallformCanvas.height =
-                height * dpr;
+                wallformCanvas.height =
+                    Math.floor(height * dpr);
 
-            wallformCanvas.style.width =
-                width + "px";
+                wallformCanvas.style.width =
+                    width + "px";
 
-            wallformCanvas.style.height =
-                height + "px";
+                wallformCanvas.style.height =
+                    height + "px";
 
-            ctx.setTransform(
-                dpr,
-                0,
-                0,
-                dpr,
-                0,
-                0
-            );
-
-        }
-
-
-        function drawWallformText() {
-
-            const width =
-                wallformCanvas.clientWidth;
-
-            const height =
-                wallformCanvas.clientHeight;
-
-            if (!width || !height) {
-                requestAnimationFrame(
-                    drawWallformText
-                );
-                return;
-            }
-
-
-            ctx.clearRect(
-                0,
-                0,
-                width,
-                height
-            );
-
-
-            /* -----------------------------------------
-               DRAW wallform TEXT FIRST
-            ----------------------------------------- */
-
-            ctx.save();
-
-            const fontSize =
-                Math.min(
-                    width * 0.18,
-                    230
-                );
-
-            ctx.font =
-                `900 ${fontSize}px Arial, sans-serif`;
-
-            ctx.textAlign =
-                "center";
-
-            ctx.textBaseline =
-                "middle";
-
-            ctx.fillStyle =
-                "#ffffff";
-
-            ctx.fillText(
-                "WALLFORM",
-                width / 2,
-                height / 2
-            );
-
-            ctx.restore();
-
-
-            /* -----------------------------------------
-               VIDEO ONLY INSIDE THE TEXT
-            ----------------------------------------- */
-
-            ctx.globalCompositeOperation =
-                "source-in";
-
-
-            if (
-                wallformVideo.readyState >= 2 &&
-                wallformVideo.videoWidth > 0 &&
-                wallformVideo.videoHeight > 0
-            ) {
-
-                const videoWidth =
-                    wallformVideo.videoWidth;
-
-                const videoHeight =
-                    wallformVideo.videoHeight;
-
-                const videoRatio =
-                    videoWidth / videoHeight;
-
-                const canvasRatio =
-                    width / height;
-
-                let drawWidth;
-                let drawHeight;
-                let offsetX;
-                let offsetY;
-
-
-                if (
-                    videoRatio > canvasRatio
-                ) {
-
-                    drawHeight =
-                        height;
-
-                    drawWidth =
-                        height * videoRatio;
-
-                    offsetX =
-                        (width - drawWidth) / 2;
-
-                    offsetY =
-                        0;
-
-                } else {
-
-                    drawWidth =
-                        width;
-
-                    drawHeight =
-                        width / videoRatio;
-
-                    offsetX =
-                        0;
-
-                    offsetY =
-                        (height - drawHeight) / 2;
-
-                }
-
-
-                ctx.drawImage(
-                    wallformVideo,
-                    offsetX,
-                    offsetY,
-                    drawWidth,
-                    drawHeight
+                ctx.setTransform(
+                    dpr,
+                    0,
+                    0,
+                    dpr,
+                    0,
+                    0
                 );
 
             }
 
 
-            ctx.globalCompositeOperation =
-                "source-over";
+            function drawWallformText() {
 
+                const width =
+                    wallformCanvas.clientWidth;
 
-            requestAnimationFrame(
-                drawWallformText
-            );
+                const height =
+                    wallformCanvas.clientHeight;
 
-        }
+                if (!width || !height) {
 
+                    requestAnimationFrame(
+                        drawWallformText
+                    );
 
-        function startWallformVideo() {
-
-            resizeWallformCanvas();
-
-            wallformVideo
-                .play()
-                .catch(() => {});
-
-
-            if (!animationStarted) {
-
-                animationStarted = true;
-
-                requestAnimationFrame(
-                    drawWallformText
-                );
-
-            }
-
-        }
-
-
-        wallformVideo.addEventListener(
-            "loadeddata",
-            startWallformVideo
-        );
-
-
-        wallformVideo.addEventListener(
-            "canplay",
-            startWallformVideo
-        );
-
-
-        window.addEventListener(
-            "resize",
-            resizeWallformCanvas
-        );
-
-
-        resizeWallformCanvas();
-
-
-        if (
-            wallformVideo.readyState >= 2
-        ) {
-
-            startWallformVideo();
-
-        }
-
-    }
-
-
-    /* =========================================
-       NUMBER COUNTERS
-    ========================================== */
-
-    const counters =
-        document.querySelectorAll(
-            ".stat-number"
-        );
-
-    function startCounter(counter) {
-
-        const target =
-            Number(
-                counter.dataset.target
-            );
-
-        if (!Number.isFinite(target)) {
-            return;
-        }
-
-        const duration = 1600;
-
-        const start =
-            performance.now();
-
-        function update(currentTime) {
-
-            const progress =
-                Math.min(
-                    (currentTime - start) /
-                    duration,
-                    1
-                );
-
-            const eased =
-                1 -
-                Math.pow(
-                    1 - progress,
-                    3
-                );
-
-            const value =
-                Math.floor(
-                    target * eased
-                );
-
-            counter.textContent =
-                value;
-
-            if (progress < 1) {
-
-                requestAnimationFrame(
-                    update
-                );
-
-            } else {
-
-                counter.textContent =
-                    target;
-
-            }
-
-        }
-
-        requestAnimationFrame(
-            update
-        );
-
-    }
-
-
-    if (counters.length) {
-
-        const counterObserver =
-            new IntersectionObserver(
-                (entries) => {
-
-                    entries.forEach((entry) => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            startCounter(
-                                entry.target
-                            );
-
-                            counterObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.5
-                }
-            );
-
-
-        counters.forEach((counter) => {
-
-            counterObserver.observe(
-                counter
-            );
-
-        });
-
-    }
-
-});
-
-
-    /* =================================================
-       TESTIMONIALS
-    ================================================= */
-
-    autoMoveCards(
-        ".testimonials-section .horizontal-wrapper",
-        0.25
-    );
-                    lines[2].style.transform =
-                        "translateY(-7px) rotate(-45deg)";
-
-                } else {
-
-                    lines[0].style.transform = "";
-                    lines[1].style.opacity = "";
-                    lines[2].style.transform = "";
-
-                }
-            }
-
-        });
-
-
-        const mobileLinks =
-            mobileMenu.querySelectorAll("a");
-
-        mobileLinks.forEach((link) => {
-
-            link.addEventListener("click", () => {
-
-                mobileMenu.classList.remove("open");
-
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                const lines =
-                    menuButton.querySelectorAll("span");
-
-                if (lines.length >= 3) {
-
-                    lines[0].style.transform = "";
-                    lines[1].style.opacity = "";
-                    lines[2].style.transform = "";
-
-                }
-
-            });
-
-        });
-
-    }
-
-
-    /* =========================================
-       SERVICE ACCORDIONS
-       SECOND WHAT WE DO SECTION
-    ========================================== */
-
-    const serviceCards =
-        document.querySelectorAll(
-            "#second-services .service-card"
-        );
-
-    serviceCards.forEach((card) => {
-
-        const header =
-            card.querySelector(".service-header");
-
-        if (!header) return;
-
-        header.addEventListener("click", () => {
-
-            const wasActive =
-                card.classList.contains("active");
-
-            serviceCards.forEach((item) => {
-                item.classList.remove("active");
-            });
-
-            if (!wasActive) {
-                card.classList.add("active");
-            }
-
-        });
-
-    });
-
-
-    /* =========================================
-       BUILD WITH CONFIDENCE ACCORDIONS
-    ========================================== */
-
-    const guideItems =
-        document.querySelectorAll(".guide-item");
-
-    guideItems.forEach((item) => {
-
-        const header =
-            item.querySelector(".guide-header");
-
-        if (!header) return;
-
-        header.addEventListener("click", () => {
-
-            const wasActive =
-                item.classList.contains("active");
-
-            guideItems.forEach((guide) => {
-                guide.classList.remove("active");
-            });
-
-            if (!wasActive) {
-                item.classList.add("active");
-            }
-
-        });
-
-    });
-
-
-    /* =========================================
-       QUOTE FORM PROGRESS
-    ========================================== */
-
-    const quoteForm =
-        document.getElementById("quoteForm");
-
-    const progressBar =
-        document.getElementById("formProgress");
-
-    if (quoteForm && progressBar) {
-
-        const fields =
-            quoteForm.querySelectorAll(
-                "input:not([type='hidden']), select, textarea"
-            );
-
-        function updateProgress() {
-
-            if (!fields.length) {
-                progressBar.style.width = "0%";
-                return;
-            }
-
-            let completed = 0;
-
-            fields.forEach((field) => {
-
-                if (field.value.trim() !== "") {
-                    completed++;
-                }
-
-            });
-
-            const percentage =
-                (completed / fields.length) * 100;
-
-            progressBar.style.width =
-                percentage + "%";
-
-        }
-
-        fields.forEach((field) => {
-
-            field.addEventListener(
-                "input",
-                updateProgress
-            );
-
-            field.addEventListener(
-                "change",
-                updateProgress
-            );
-
-        });
-
-        updateProgress();
-
-
-        /* =========================================
-           FORMSPREE SUBMISSION
-        ========================================== */
-
-        quoteForm.addEventListener(
-            "submit",
-            async (event) => {
-
-                event.preventDefault();
-
-                const submitButton =
-                    quoteForm.querySelector(".submit-button");
-
-                const message =
-                    document.getElementById("formMessage");
-
-                if (!submitButton || !message) {
                     return;
                 }
 
-                const originalText =
-                    submitButton.innerHTML;
 
-                submitButton.disabled = true;
-                submitButton.innerHTML = "Sending...";
-
-                message.textContent = "";
-                message.style.color = "";
-
-                try {
-
-                    const formData =
-                        new FormData(quoteForm);
-
-                    const response =
-                        await fetch(
-                            quoteForm.action,
-                            {
-                                method: "POST",
-                                body: formData,
-                                headers: {
-                                    Accept:
-                                        "application/json"
-                                }
-                            }
-                        );
-
-                    if (!response.ok) {
-                        throw new Error(
-                            "Form submission failed."
-                        );
-                    }
-
-                    message.textContent =
-                        "Thank you. Your request has been sent successfully.";
-
-                    message.style.color =
-                        "#3d8b40";
-
-                    quoteForm.reset();
-
-                    updateProgress();
-
-                    submitButton.innerHTML =
-                        "Request Sent ✓";
-
-                    setTimeout(() => {
-
-                        submitButton.innerHTML =
-                            originalText;
-
-                        submitButton.disabled =
-                            false;
-
-                    }, 4000);
-
-                } catch (error) {
-
-                    console.error(error);
-
-                    message.textContent =
-                        "Something went wrong. Please try again or call us directly.";
-
-                    message.style.color =
-                        "#b42318";
-
-                    submitButton.innerHTML =
-                        originalText;
-
-                    submitButton.disabled =
-                        false;
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =========================================
-       SMOOTH SCROLL
-    ========================================== */
-
-    const internalLinks =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
-
-    internalLinks.forEach((link) => {
-
-        link.addEventListener("click", (event) => {
-
-            const targetId =
-                link.getAttribute("href");
-
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-                return;
-            }
-
-            const target =
-                document.querySelector(targetId);
-
-            if (!target) {
-                return;
-            }
-
-            event.preventDefault();
-
-            const navbar =
-                document.querySelector(".navbar");
-
-            const navbarHeight =
-                navbar
-                    ? navbar.offsetHeight
-                    : 0;
-
-            const targetPosition =
-                target.getBoundingClientRect().top +
-                window.scrollY -
-                navbarHeight;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: "smooth"
-            });
-
-        });
-
-    });
-
-
-    /* =========================================
-       NAVBAR SCROLL EFFECT
-    ========================================== */
-
-    const navbar =
-        document.querySelector(".navbar");
-
-    if (navbar) {
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                if (window.scrollY > 40) {
-
-                    navbar.style.background =
-                        "rgba(5, 5, 5, 0.97)";
-
-                } else {
-
-                    navbar.style.background =
-                        "rgba(8, 8, 8, 0.9)";
-
-                }
-
-            },
-            { passive: true }
-        );
-
-    }
-
-
-    /* =========================================
-       IMAGE ERROR HANDLING
-    ========================================== */
-
-    const images =
-        document.querySelectorAll("img");
-
-    images.forEach((image) => {
-
-        image.addEventListener(
-            "error",
-            () => {
-
-                console.warn(
-                    "Image could not be loaded:",
-                    image.src
+                ctx.clearRect(
+                    0,
+                    0,
+                    width,
+                    height
                 );
 
-                image.style.background =
-                    "#222";
 
-            }
-        );
+                /* -----------------------------------------
+                   DRAW WALLFORM TEXT AS MASK
+                ----------------------------------------- */
 
-    });
+                ctx.save();
 
+                const fontSize =
+                    Math.min(
+                        width * 0.18,
+                        230
+                    );
 
-    /* =========================================
-       HERO / BACKGROUND VIDEO FALLBACK
-    ========================================== */
+                ctx.font =
+                    `900 ${fontSize}px Arial, sans-serif`;
 
-    const video =
-        document.querySelector(".video-section video");
+                ctx.textAlign =
+                    "center";
 
-    if (video) {
+                ctx.textBaseline =
+                    "middle";
 
-        video.addEventListener(
-            "error",
-            () => {
+                ctx.fillStyle =
+                    "#ffffff";
 
-                console.warn(
-                    "Background video could not be loaded."
+                ctx.fillText(
+                    "WALLFORM",
+                    width / 2,
+                    height / 2
                 );
 
-            }
-        );
-
-    }
+                ctx.restore();
 
 
-    /* =========================================
-       BUILDTIME VIDEO INSIDE TEXT
-    ========================================== */
-
-    const buildtimeVideo =
-        document.getElementById(
-            "buildtimeTextVideo"
-        );
-
-    const buildtimeCanvas =
-        document.getElementById(
-            "buildtimeTextCanvas"
-        );
-
-    if (
-        buildtimeVideo &&
-        buildtimeCanvas
-    ) {
-
-        const ctx =
-            buildtimeCanvas.getContext("2d");
-
-        let animationStarted = false;
-
-
-        function resizeBuildtimeCanvas() {
-
-            const width =
-                Math.min(
-                    window.innerWidth - 40,
-                    1400
-                );
-
-            const height =
-                width * 0.38;
-
-            const dpr =
-                window.devicePixelRatio || 1;
-
-            buildtimeCanvas.width =
-                width * dpr;
-
-            buildtimeCanvas.height =
-                height * dpr;
-
-            buildtimeCanvas.style.width =
-                width + "px";
-
-            buildtimeCanvas.style.height =
-                height + "px";
-
-            ctx.setTransform(
-                dpr,
-                0,
-                0,
-                dpr,
-                0,
-                0
-            );
-
-        }
-
-
-        function drawBuildtimeText() {
-
-            const width =
-                buildtimeCanvas.clientWidth;
-
-            const height =
-                buildtimeCanvas.clientHeight;
-
-            if (!width || !height) {
-                requestAnimationFrame(
-                    drawBuildtimeText
-                );
-                return;
-            }
-
-
-            ctx.clearRect(
-                0,
-                0,
-                width,
-                height
-            );
-
-
-            /* -----------------------------------------
-               DRAW BUILDTIME TEXT FIRST
-            ----------------------------------------- */
-
-            ctx.save();
-
-            const fontSize =
-                Math.min(
-                    width * 0.18,
-                    230
-                );
-
-            ctx.font =
-                `900 ${fontSize}px Arial, sans-serif`;
-
-            ctx.textAlign =
-                "center";
-
-            ctx.textBaseline =
-                "middle";
-
-            ctx.fillStyle =
-                "#ffffff";
-
-            ctx.fillText(
-                "BUILDTIME",
-                width / 2,
-                height / 2
-            );
-
-            ctx.restore();
-
-
-            /* -----------------------------------------
-               VIDEO ONLY INSIDE THE TEXT
-            ----------------------------------------- */
-
-            ctx.globalCompositeOperation =
-                "source-in";
-
-
-            if (
-                buildtimeVideo.readyState >= 2 &&
-                buildtimeVideo.videoWidth > 0 &&
-                buildtimeVideo.videoHeight > 0
-            ) {
-
-                const videoWidth =
-                    buildtimeVideo.videoWidth;
-
-                const videoHeight =
-                    buildtimeVideo.videoHeight;
-
-                const videoRatio =
-                    videoWidth / videoHeight;
-
-                const canvasRatio =
-                    width / height;
-
-                let drawWidth;
-                let drawHeight;
-                let offsetX;
-                let offsetY;
-
+                /* -----------------------------------------
+                   VIDEO INSIDE WALLFORM
+                ----------------------------------------- */
 
                 if (
-                    videoRatio > canvasRatio
+                    wallformVideo.readyState >= 2 &&
+                    wallformVideo.videoWidth > 0 &&
+                    wallformVideo.videoHeight > 0
                 ) {
 
-                    drawHeight =
-                        height;
+                    ctx.globalCompositeOperation =
+                        "source-in";
 
-                    drawWidth =
-                        height * videoRatio;
+                    const videoRatio =
+                        wallformVideo.videoWidth /
+                        wallformVideo.videoHeight;
 
-                    offsetX =
-                        (width - drawWidth) / 2;
+                    const canvasRatio =
+                        width / height;
 
-                    offsetY =
-                        0;
+                    let drawWidth;
+                    let drawHeight;
+                    let offsetX;
+                    let offsetY;
 
-                } else {
 
-                    drawWidth =
-                        width;
+                    if (videoRatio > canvasRatio) {
 
-                    drawHeight =
-                        width / videoRatio;
+                        drawHeight = height;
 
-                    offsetX =
-                        0;
+                        drawWidth =
+                            height * videoRatio;
 
-                    offsetY =
-                        (height - drawHeight) / 2;
+                        offsetX =
+                            (width - drawWidth) / 2;
+
+                        offsetY = 0;
+
+                    } else {
+
+                        drawWidth = width;
+
+                        drawHeight =
+                            width / videoRatio;
+
+                        offsetX = 0;
+
+                        offsetY =
+                            (height - drawHeight) / 2;
+                    }
+
+
+                    ctx.drawImage(
+                        wallformVideo,
+                        offsetX,
+                        offsetY,
+                        drawWidth,
+                        drawHeight
+                    );
+
+                    ctx.globalCompositeOperation =
+                        "source-over";
 
                 }
 
 
-                ctx.drawImage(
-                    buildtimeVideo,
-                    offsetX,
-                    offsetY,
-                    drawWidth,
-                    drawHeight
+                requestAnimationFrame(
+                    drawWallformText
                 );
 
             }
 
 
-            ctx.globalCompositeOperation =
-                "source-over";
+            function startWallformVideo() {
+
+                resizeWallformCanvas();
+
+                const playPromise =
+                    wallformVideo.play();
+
+                if (playPromise) {
+
+                    playPromise.catch(() => {
+                        console.warn(
+                            "Wallform text video could not autoplay."
+                        );
+                    });
+
+                }
 
 
-            requestAnimationFrame(
-                drawBuildtimeText
+                if (!animationStarted) {
+
+                    animationStarted = true;
+
+                    requestAnimationFrame(
+                        drawWallformText
+                    );
+
+                }
+
+            }
+
+
+            wallformVideo.addEventListener(
+                "loadeddata",
+                startWallformVideo
             );
 
-        }
+            wallformVideo.addEventListener(
+                "canplay",
+                startWallformVideo
+            );
+
+            wallformVideo.addEventListener(
+                "playing",
+                startWallformVideo
+            );
 
 
-        function startBuildtimeVideo() {
-
-            resizeBuildtimeCanvas();
-
-            buildtimeVideo
-                .play()
-                .catch(() => {});
+            window.addEventListener(
+                "resize",
+                resizeWallformCanvas
+            );
 
 
-            if (!animationStarted) {
+            resizeWallformCanvas();
 
-                animationStarted = true;
 
-                requestAnimationFrame(
-                    drawBuildtimeText
-                );
+            if (
+                wallformVideo.readyState >= 2
+            ) {
+
+                startWallformVideo();
 
             }
-
-        }
-
-
-        buildtimeVideo.addEventListener(
-            "loadeddata",
-            startBuildtimeVideo
-        );
-
-
-        buildtimeVideo.addEventListener(
-            "canplay",
-            startBuildtimeVideo
-        );
-
-
-        window.addEventListener(
-            "resize",
-            resizeBuildtimeCanvas
-        );
-
-
-        resizeBuildtimeCanvas();
-
-
-        if (
-            buildtimeVideo.readyState >= 2
-        ) {
-
-            startBuildtimeVideo();
 
         }
 
@@ -1501,14 +695,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
        NUMBER COUNTERS
-    ========================================== */
+    ========================================= */
 
     const counters =
         document.querySelectorAll(
             ".stat-number"
         );
 
+
     function startCounter(counter) {
+
+        if (counter.dataset.counted === "true") {
+            return;
+        }
 
         const target =
             Number(
@@ -1519,16 +718,19 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        counter.dataset.counted = "true";
+
         const duration = 1600;
 
-        const start =
+        const startTime =
             performance.now();
 
-        function update(currentTime) {
+
+        function updateCounter(currentTime) {
 
             const progress =
                 Math.min(
-                    (currentTime - start) /
+                    (currentTime - startTime) /
                     duration,
                     1
                 );
@@ -1546,25 +748,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
             counter.textContent =
-                value;
+                value.toLocaleString();
+
 
             if (progress < 1) {
 
                 requestAnimationFrame(
-                    update
+                    updateCounter
                 );
 
             } else {
 
                 counter.textContent =
-                    target;
+                    target.toLocaleString();
 
             }
 
         }
 
+
+        counter.textContent = "0";
+
         requestAnimationFrame(
-            update
+            updateCounter
         );
 
     }
@@ -1572,53 +778,156 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (counters.length) {
 
-        const counterObserver =
-            new IntersectionObserver(
-                (entries) => {
+        if ("IntersectionObserver" in window) {
 
-                    entries.forEach((entry) => {
+            const counterObserver =
+                new IntersectionObserver(
+                    (entries) => {
+
+                        entries.forEach((entry) => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                startCounter(
+                                    entry.target
+                                );
+
+                                counterObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        });
+
+                    },
+                    {
+                        threshold: 0.15
+                    }
+                );
+
+
+            counters.forEach((counter) => {
+
+                counterObserver.observe(
+                    counter
+                );
+
+            });
+
+        } else {
+
+            counters.forEach((counter) => {
+                startCounter(counter);
+            });
+
+        }
+
+    }
+
+
+    /* =========================================
+       TESTIMONIALS AUTO MOVE
+       SAFE VERSION
+    ========================================= */
+
+    const testimonialTrack =
+        document.querySelector(
+            ".testimonials-section .horizontal-wrapper"
+        );
+
+    if (testimonialTrack) {
+
+        let testimonialPosition = 0;
+        let testimonialPaused = false;
+
+        const testimonialCards =
+            testimonialTrack.children;
+
+        if (testimonialCards.length > 1) {
+
+            testimonialTrack.addEventListener(
+                "mouseenter",
+                () => {
+                    testimonialPaused = true;
+                }
+            );
+
+            testimonialTrack.addEventListener(
+                "mouseleave",
+                () => {
+                    testimonialPaused = false;
+                }
+            );
+
+            testimonialTrack.addEventListener(
+                "touchstart",
+                () => {
+                    testimonialPaused = true;
+                },
+                { passive: true }
+            );
+
+            testimonialTrack.addEventListener(
+                "touchend",
+                () => {
+                    setTimeout(() => {
+                        testimonialPaused = false;
+                    }, 1500);
+                },
+                { passive: true }
+            );
+
+
+            function moveTestimonials() {
+
+                if (!testimonialPaused) {
+
+                    testimonialPosition -= 0.25;
+
+                    const firstCard =
+                        testimonialCards[0];
+
+                    if (firstCard) {
+
+                        const cardWidth =
+                            firstCard.offsetWidth;
+
+                        const gap = 24;
 
                         if (
-                            entry.isIntersecting
+                            Math.abs(testimonialPosition) >=
+                            cardWidth + gap
                         ) {
 
-                            startCounter(
-                                entry.target
-                            );
+                            testimonialPosition = 0;
 
-                            counterObserver.unobserve(
-                                entry.target
+                            testimonialTrack.appendChild(
+                                testimonialTrack.firstElementChild
                             );
 
                         }
 
-                    });
+                        testimonialTrack.style.transform =
+                            `translateX(${testimonialPosition}px)`;
+                    }
 
-                },
-                {
-                    threshold: 0.5
                 }
+
+                requestAnimationFrame(
+                    moveTestimonials
+                );
+
+            }
+
+            requestAnimationFrame(
+                moveTestimonials
             );
 
-
-        counters.forEach((counter) => {
-
-            counterObserver.observe(
-                counter
-            );
-
-        });
+        }
 
     }
 
 });
-
-
-    /* =================================================
-       TESTIMONIALS
-    ================================================= */
-
-    autoMoveCards(
-        ".testimonials-section .horizontal-wrapper",
-        0.25
-    );
