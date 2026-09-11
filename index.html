@@ -2,31 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Majestic Homes & Properties | Real Estate</title>
 
     <meta
         name="description"
-        content="Majestic Homes & Properties helps clients buy, sell, rent and manage properties with professional real estate services and trusted guidance."
+        content="Majestic Homes & Properties helps clients buy, sell, rent, manage and invest in quality properties."
     >
 
     <meta
         name="keywords"
-        content="Majestic Homes & Properties, real estate, property for sale, property for rent, land for sale, property management, real estate consultancy, homes and properties"
+        content="Majestic Homes, real estate, properties, property sales, property management, rentals, Lagos real estate, Nigeria real estate"
     >
 
     <meta name="author" content="Majestic Homes & Properties">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Majestic Homes & Properties">
-    <meta
-        property="og:description"
-        content="Property Sales. Rentals. Management. Real Estate."
-    >
-    <meta property="og:type" content="website">
-
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -38,41 +30,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="top">
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
 <header class="navbar">
 
     <div class="nav-container">
 
-        <!-- HEADER LOGO -->
-        <a href="#top" class="logo">
+        <a href="#home" class="logo">
             MAJESTIC
             <span>HOMES</span>
         </a>
 
         <nav class="desktop-nav">
 
-            <a href="#top">Home</a>
-
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
             <a href="#services">Services</a>
-
-            <!-- KEEPING OUR PARTNERS -->
-            <a href="#subsidiaries">Our Partners</a>
-
-            <a href="#quote">Contact</a>
-
-            <a href="tel:+15550123456" class="nav-call">
-                Call Now
-            </a>
+            <a href="#properties">Properties</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
 
         </nav>
 
-        <button
-            class="menu-button"
-            id="menuButton"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-        >
+        <a href="#quote" class="nav-call">
+            GET STARTED
+        </a>
+
+        <button class="menu-button" type="button" aria-label="Open menu">
             <span></span>
             <span></span>
             <span></span>
@@ -80,34 +68,18 @@
 
     </div>
 
+    <div class="mobile-menu">
 
-    <!-- MOBILE MENU -->
-
-    <div class="mobile-menu" id="mobileMenu">
-
-        <a href="#top">Home</a>
-
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
         <a href="#services">Services</a>
-
-        <!-- KEEPING OUR PARTNERS -->
-        <a href="#subsidiaries">Our Partners</a>
-
-        <a href="#quote">Contact</a>
-
-        <a href="tel:+15550123456" class="mobile-call">
-            Call Now
-        </a>
-
-        <p>
-            Majestic Homes &amp; Properties · Real Estate
-        </p>
+        <a href="#properties">Properties</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
 
     </div>
 
 </header>
-
-
-<main>
 
 
 <!-- =====================================================
@@ -119,13 +91,12 @@
     <div class="hero-media">
 
         <video
-            id="heroVideo"
             class="hero-video"
             autoplay
             muted
             loop
             playsinline
-            preload="metadata"
+            poster="images/hero.jpg"
         >
             <source src="assets/hero.mp4" type="video/mp4">
         </video>
@@ -134,206 +105,123 @@
 
     </div>
 
-
     <div class="hero-content">
 
-        <span class="hero-eyebrow">
+        <div class="hero-eyebrow">
             YOUR NEXT PROPERTY STARTS HERE
-        </span>
+        </div>
 
         <h1>
-            Find. <em>Own. Invest.</em>
+            Find.
+            <em>Own.</em>
+            Invest.
         </h1>
 
-        <p>
-            Majestic Homes &amp; Properties helps individuals, families
-            and investors find the right properties through reliable
-            real estate services, professional guidance and trusted
-            property solutions.
+        <p class="hero-description">
+            Majestic Homes & Properties connects you with quality homes,
+            commercial spaces and investment opportunities designed around
+            the way you want to live and grow.
         </p>
-
 
         <div class="hero-actions">
 
-            <a href="#quote" class="primary-button">
-                Find A Property
-                <span>↗</span>
+            <a href="#properties" class="primary-button">
+                FIND A PROPERTY
             </a>
 
-            <a href="#properties" class="secondary-button">
-                View Properties
+            <a href="#quote" class="secondary-button">
+                TALK TO US
             </a>
 
         </div>
 
     </div>
 
-
-    <div class="hero-credibility">
-
-        <span>BUY</span>
-
-        <span aria-hidden="true">•</span>
-
-        <span>SELL</span>
-
-        <span aria-hidden="true">•</span>
-
-        <span>RENT</span>
-
-        <span aria-hidden="true">•</span>
-
-        <span>INVEST</span>
-
-    </div>
-
 </section>
-
 
 
 <!-- =====================================================
      OUR PARTNERS
 ===================================================== -->
 
-<section class="subsidiaries-section" id="subsidiaries">
+<section class="subsidiaries-section">
 
-    <div class="container">
+    <div class="subsidiaries-heading">
 
-        <div class="subsidiaries-heading">
+        <div class="section-label">
+            OUR PARTNERS
+        </div>
 
-            <span class="section-label">
-                OUR PARTNERS
-            </span>
+        <h2>
+            Stronger
+            <span>connections.</span>
+        </h2>
 
+    </div>
 
-            <div class="subsidiaries-intro">
+    <p class="subsidiaries-intro">
+        Trusted people and professional partners helping us create
+        better property opportunities for our clients.
+    </p>
 
-                <div class="profile-stack">
+    <div class="profile-stack">
 
-                    <div class="profile profile-one">
+        <div class="profile profile-one">
+            <img src="images/partner-1.jpg" alt="Majestic Homes partner">
+        </div>
 
-                        <img
-                            src="assets/subsidiary-profile-1.jpg"
-                            alt="Majestic Homes & Properties partner"
-                            loading="lazy"
-                        >
+        <div class="profile profile-two">
+            <img src="images/partner-2.jpg" alt="Majestic Homes partner">
+        </div>
 
-                    </div>
-
-
-                    <div class="profile profile-two">
-
-                        <img
-                            src="assets/subsidiary-profile-2.jpg"
-                            alt="Majestic Homes & Properties partner"
-                            loading="lazy"
-                        >
-
-                    </div>
-
-
-                    <div class="profile profile-three">
-
-                        <img
-                            src="assets/subsidiary-profile-3.jpg"
-                            alt="Majestic Homes & Properties partner"
-                            loading="lazy"
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <div class="subsidiaries-copy">
-
-                    <strong>
-                        Trusted people,
-                    </strong>
-
-                    <span>
-                        stronger connections.
-                    </span>
-
-                </div>
-
-            </div>
-
+        <div class="profile profile-three">
+            <img src="images/partner-3.jpg" alt="Majestic Homes partner">
         </div>
 
     </div>
 
+    <div class="subsidiaries-copy">
+
+        <p>
+            We work with trusted professionals, property owners,
+            developers and service providers to make every property
+            journey smoother.
+        </p>
+
+    </div>
 
     <div class="subsidiary-slider">
 
         <div class="subsidiary-track">
 
-
             <div class="subsidiary-card">
-
-                <img
-                    src="assets/subsidiary-logo-1.png"
-                    alt="Majestic Homes & Properties partner"
-                    loading="lazy"
-                >
-
+                <strong>PROPERTY OWNERS</strong>
+                <span>Trusted property opportunities</span>
             </div>
 
-
             <div class="subsidiary-card">
-
-                <img
-                    src="assets/subsidiary-logo-2.png"
-                    alt="Majestic Homes & Properties partner"
-                    loading="lazy"
-                >
-
+                <strong>DEVELOPERS</strong>
+                <span>Quality developments</span>
             </div>
 
-
             <div class="subsidiary-card">
-
-                <img
-                    src="assets/subsidiary-logo-3.png"
-                    alt="Majestic Homes & Properties partner"
-                    loading="lazy"
-                >
-
+                <strong>INVESTORS</strong>
+                <span>Better property opportunities</span>
             </div>
 
-
-            <!-- DUPLICATE SET -->
-
             <div class="subsidiary-card">
-
-                <img
-                    src="assets/subsidiary-logo-1.png"
-                    alt="Majestic Homes & Properties partner"
-                    loading="lazy"
-                >
-
+                <strong>PROFESSIONALS</strong>
+                <span>Reliable property services</span>
             </div>
 
-
             <div class="subsidiary-card">
-
-                <img
-                    src="assets/subsidiary-logo-2.png"
-                    alt="Majestic Homes & Properties partner"
-                    loading="lazy"
-                >
-
+                <strong>PROPERTY OWNERS</strong>
+                <span>Trusted property opportunities</span>
             </div>
 
-
             <div class="subsidiary-card">
-
-                <img
-                    src="assets/subsidiary-logo-3.png"
-                    alt="Majestic Homes & Properties partner"
-                    loading="lazy"
-                >
-
+                <strong>DEVELOPERS</strong>
+                <span>Quality developments</span>
             </div>
 
         </div>
@@ -343,66 +231,82 @@
 </section>
 
 
+<!-- =====================================================
+     BRAND VIDEO / MAJESTIC
+===================================================== -->
+
+<section class="group-showcase">
+
+    <div class="cynosure-video-text">
+
+        <video
+            id="cynosureTextVideo"
+            muted
+            loop
+            playsinline
+            preload="auto"
+        >
+            <source src="assets/wallform-text.mp4" type="video/mp4">
+        </video>
+
+        <canvas id="cynosureTextCanvas"></canvas>
+
+    </div>
+
+</section>
+
 
 <!-- =====================================================
-     MAIN SERVICES
+     WHAT WE DO — MOVING CARDS
 ===================================================== -->
 
 <section class="services-section" id="services">
 
-    <div class="container">
+    <div class="section-heading">
 
-        <div class="section-heading">
-
-            <span class="section-label">
-                WHAT WE DO
-            </span>
-
-            <h2>
-                Real estate <em>made easier.</em>
-            </h2>
-
-            <p>
-                From finding the right property to managing your
-                investment, Majestic Homes &amp; Properties provides
-                practical real estate solutions built around your needs.
-            </p>
-
+        <div class="eyebrow">
+            WHAT WE DO
         </div>
+
+        <h2>
+            PROPERTY
+            <span>SOLUTIONS.</span>
+        </h2>
+
+        <p>
+            From finding the right property to managing your investment,
+            we help you move with confidence.
+        </p>
 
     </div>
 
 
-    <div class="horizontal-wrapper auto-slider">
+    <div class="horizontal-wrapper">
 
         <div class="services-track">
-
-
-            <!-- SERVICE 01 -->
 
             <article class="service-card">
 
                 <img
-                    src="assets/what-we-do-1.jpg"
+                    src="images/property-sales.jpg"
                     alt="Property sales"
-                    loading="lazy"
                 >
 
                 <div class="card-overlay"></div>
 
                 <div class="service-content">
 
-                    <span class="card-number">
+                    <div class="card-number">
                         01
-                    </span>
+                    </div>
 
                     <h3>
                         Property Sales
                     </h3>
 
                     <p>
-                        Find and acquire residential, commercial
-                        and land properties that match your needs.
+                        Find residential and commercial properties
+                        that match your goals.
                     </p>
 
                 </div>
@@ -410,32 +314,28 @@
             </article>
 
 
-
-            <!-- SERVICE 02 -->
-
             <article class="service-card">
 
                 <img
-                    src="assets/what-we-do-2.jpg"
+                    src="images/property-rentals.jpg"
                     alt="Property rentals and letting"
-                    loading="lazy"
                 >
 
                 <div class="card-overlay"></div>
 
                 <div class="service-content">
 
-                    <span class="card-number">
+                    <div class="card-number">
                         02
-                    </span>
+                    </div>
 
                     <h3>
-                        Rentals &amp; Lettings
+                        Rentals & Lettings
                     </h3>
 
                     <p>
-                        Discover suitable homes, apartments,
-                        offices and other rental properties.
+                        Discover suitable spaces for living,
+                        business and everyday needs.
                     </p>
 
                 </div>
@@ -443,32 +343,28 @@
             </article>
 
 
-
-            <!-- SERVICE 03 -->
-
             <article class="service-card">
 
                 <img
-                    src="assets/what-we-do-3.jpg"
+                    src="images/property-management.jpg"
                     alt="Property management"
-                    loading="lazy"
                 >
 
                 <div class="card-overlay"></div>
 
                 <div class="service-content">
 
-                    <span class="card-number">
+                    <div class="card-number">
                         03
-                    </span>
+                    </div>
 
                     <h3>
                         Property Management
                     </h3>
 
                     <p>
-                        Professional support for property owners
-                        who want their investments properly managed.
+                        Professional support for keeping your
+                        property properly managed.
                     </p>
 
                 </div>
@@ -476,38 +372,151 @@
             </article>
 
 
-
-            <!-- SERVICE 04 -->
-
             <article class="service-card">
 
                 <img
-                    src="assets/what-we-do-4.jpg"
+                    src="images/real-estate-consultancy.jpg"
                     alt="Real estate consultancy"
-                    loading="lazy"
                 >
 
                 <div class="card-overlay"></div>
 
                 <div class="service-content">
 
-                    <span class="card-number">
+                    <div class="card-number">
                         04
-                    </span>
+                    </div>
 
                     <h3>
                         Real Estate Consultancy
                     </h3>
 
                     <p>
-                        Get practical guidance when buying, selling,
-                        renting or investing in property.
+                        Practical guidance for property decisions
+                        and investment opportunities.
                     </p>
 
                 </div>
 
             </article>
 
+
+            <!-- DUPLICATES FOR MARQUEE -->
+
+            <article class="service-card">
+
+                <img
+                    src="images/property-sales.jpg"
+                    alt="Property sales"
+                >
+
+                <div class="card-overlay"></div>
+
+                <div class="service-content">
+
+                    <div class="card-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Property Sales
+                    </h3>
+
+                    <p>
+                        Find residential and commercial properties
+                        that match your goals.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <img
+                    src="images/property-rentals.jpg"
+                    alt="Property rentals"
+                >
+
+                <div class="card-overlay"></div>
+
+                <div class="service-content">
+
+                    <div class="card-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Rentals & Lettings
+                    </h3>
+
+                    <p>
+                        Discover suitable spaces for living,
+                        business and everyday needs.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <img
+                    src="images/property-management.jpg"
+                    alt="Property management"
+                >
+
+                <div class="card-overlay"></div>
+
+                <div class="service-content">
+
+                    <div class="card-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Property Management
+                    </h3>
+
+                    <p>
+                        Professional support for keeping your
+                        property properly managed.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <img
+                    src="images/real-estate-consultancy.jpg"
+                    alt="Real estate consultancy"
+                >
+
+                <div class="card-overlay"></div>
+
+                <div class="service-content">
+
+                    <div class="card-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Real Estate Consultancy
+                    </h3>
+
+                    <p>
+                        Practical guidance for property decisions
+                        and investment opportunities.
+                    </p>
+
+                </div>
+
+            </article>
 
         </div>
 
@@ -516,9 +525,8 @@
 </section>
 
 
-
 <!-- =====================================================
-     ABOUT
+     WHO WE ARE
 ===================================================== -->
 
 <section class="about-section" id="about">
@@ -532,19 +540,19 @@
             </span>
 
             <h2>
-                We help you find <em>more than a property.</em>
+                PROPERTY
+                <em>WITH PURPOSE.</em>
             </h2>
 
             <p>
-                Majestic Homes &amp; Properties is focused on helping
-                clients make better property decisions through
-                professional service, clear communication and
-                dependable real estate solutions.
+                Majestic Homes & Properties is focused on helping
+                people discover, secure and manage property with
+                confidence. We combine local knowledge, professional
+                service and a client-first approach.
             </p>
 
             <a href="#quote" class="text-button">
-                Work With Us
-                <span>↗</span>
+                START A CONVERSATION →
             </a>
 
         </div>
@@ -555,9 +563,8 @@
             <div class="about-image about-image-main">
 
                 <img
-                    src="assets/about-1.jpg"
-                    alt="Majestic Homes & Properties property"
-                    loading="lazy"
+                    src="images/about-main.jpg"
+                    alt="Majestic Homes property"
                 >
 
             </div>
@@ -566,9 +573,8 @@
             <div class="about-image about-image-secondary">
 
                 <img
-                    src="assets/about-2.jpg"
-                    alt="Majestic Homes & Properties real estate"
-                    loading="lazy"
+                    src="images/about-secondary.jpg"
+                    alt="Modern property"
                 >
 
             </div>
@@ -580,21 +586,21 @@
 </section>
 
 
-
 <!-- =====================================================
-     SECOND SERVICES
+     BUILT FOR THE LONG TERM
 ===================================================== -->
 
-<section class="services section" id="second-services">
+<section class="long-term-services" id="second-services">
 
     <div class="section-heading">
 
-        <p class="eyebrow">
-            OUR SERVICES
-        </p>
+        <div class="eyebrow">
+            WHAT WE DO
+        </div>
 
         <h2>
-            Property solutions <span>for the long term.</span>
+            BUILT FOR THE
+            <span>LONG TERM.</span>
         </h2>
 
     </div>
@@ -603,11 +609,11 @@
     <div class="services-list">
 
 
-        <!-- 01 -->
+        <!-- SERVICE 01 -->
 
-        <article class="service-card">
+        <article class="service-card active">
 
-            <div class="service-header">
+            <button class="service-header" type="button">
 
                 <div>
 
@@ -620,37 +626,49 @@
                     </h3>
 
                     <p>
-                        Homes, Land &amp; Commercial Properties
+                        Buy with confidence.
                     </p>
 
                 </div>
 
-                <span class="service-toggle">
+                <span class="service-icon">
                     +
                 </span>
 
-            </div>
+            </button>
 
 
-            <div class="service-body">
+            <div class="service-content">
 
-                <p>
-                    We connect buyers with suitable properties
-                    for residential, commercial and investment
-                    purposes.
-                </p>
+                <div class="service-image">
+
+                    <img
+                        src="images/property-sales.jpg"
+                        alt="Property sales"
+                    >
+
+                </div>
+
+                <div class="service-text">
+
+                    <p>
+                        We help clients discover suitable properties,
+                        understand their options and move through the
+                        buying process with clarity.
+                    </p>
+
+                </div>
 
             </div>
 
         </article>
 
 
-
-        <!-- 02 -->
+        <!-- SERVICE 02 -->
 
         <article class="service-card">
 
-            <div class="service-header">
+            <button class="service-header" type="button">
 
                 <div>
 
@@ -659,40 +677,53 @@
                     </span>
 
                     <h3>
-                        Rentals &amp; Lettings
+                        Rentals & Lettings
                     </h3>
 
                     <p>
-                        Homes, Apartments &amp; Offices
+                        Find your next space.
                     </p>
 
                 </div>
 
-                <span class="service-toggle">
+                <span class="service-icon">
                     +
                 </span>
 
-            </div>
+            </button>
 
 
-            <div class="service-body">
+            <div class="service-content">
 
-                <p>
-                    Find rental properties that fit your location,
-                    budget and lifestyle or business requirements.
-                </p>
+                <div class="service-image">
+
+                    <img
+                        src="images/property-rentals.jpg"
+                        alt="Property rentals"
+                    >
+
+                </div>
+
+                <div class="service-text">
+
+                    <p>
+                        From homes to commercial spaces, we help
+                        clients find rental opportunities that suit
+                        their needs and budget.
+                    </p>
+
+                </div>
 
             </div>
 
         </article>
 
 
-
-        <!-- 03 -->
+        <!-- SERVICE 03 -->
 
         <article class="service-card">
 
-            <div class="service-header">
+            <button class="service-header" type="button">
 
                 <div>
 
@@ -705,36 +736,49 @@
                     </h3>
 
                     <p>
-                        Care, Oversight &amp; Management
+                        Keep your property working.
                     </p>
 
                 </div>
 
-                <span class="service-toggle">
+                <span class="service-icon">
                     +
                 </span>
 
-            </div>
+            </button>
 
 
-            <div class="service-body">
+            <div class="service-content">
 
-                <p>
-                    Helping property owners oversee their properties
-                    while maintaining value and proper management.
-                </p>
+                <div class="service-image">
+
+                    <img
+                        src="images/property-management.jpg"
+                        alt="Property management"
+                    >
+
+                </div>
+
+                <div class="service-text">
+
+                    <p>
+                        We provide professional property support
+                        designed to help owners maintain their
+                        properties and protect their investment.
+                    </p>
+
+                </div>
 
             </div>
 
         </article>
 
 
-
-        <!-- 04 -->
+        <!-- SERVICE 04 -->
 
         <article class="service-card">
 
-            <div class="service-header">
+            <button class="service-header" type="button">
 
                 <div>
 
@@ -747,24 +791,38 @@
                     </h3>
 
                     <p>
-                        Guidance &amp; Investment Support
+                        Make informed decisions.
                     </p>
 
                 </div>
 
-                <span class="service-toggle">
+                <span class="service-icon">
                     +
                 </span>
 
-            </div>
+            </button>
 
 
-            <div class="service-body">
+            <div class="service-content">
 
-                <p>
-                    Practical guidance for clients making property
-                    purchases, sales, rental or investment decisions.
-                </p>
+                <div class="service-image">
+
+                    <img
+                        src="images/real-estate-consultancy.jpg"
+                        alt="Real estate consultancy"
+                    >
+
+                </div>
+
+                <div class="service-text">
+
+                    <p>
+                        Get practical guidance when evaluating
+                        property opportunities, investments and
+                        real estate decisions.
+                    </p>
+
+                </div>
 
             </div>
 
@@ -774,7 +832,6 @@
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -785,92 +842,80 @@
 
     <div class="stats-grid">
 
+        <div class="stat">
 
-        <div class="stat-item">
+            <div class="stat-number">
+                15
+            </div>
 
-            <span
-                class="stat-number"
-                data-target="15"
-            >
-                0
-            </span>
-
-            <span class="stat-label">
-                Years Experience
+            <span>
+                YEARS EXPERIENCE
             </span>
 
         </div>
 
 
-        <div class="stat-item">
+        <div class="stat">
 
-            <span
-                class="stat-number"
-                data-target="120"
-            >
-                0
-            </span>
+            <div class="stat-number">
+                120
+            </div>
 
-            <span class="stat-label">
-                Properties
+            <span>
+                PROPERTIES
             </span>
 
         </div>
 
 
-        <div class="stat-item">
+        <div class="stat">
 
-            <span
-                class="stat-number"
-                data-target="98"
-            >
-                0
-            </span>
+            <div class="stat-number">
+                98%
+            </div>
 
-            <span class="stat-label">
-                Client Satisfaction
+            <span>
+                CLIENT SATISFACTION
             </span>
 
         </div>
 
 
-        <div class="stat-item">
+        <div class="stat">
 
-            <span
-                class="stat-number"
-                data-target="24"
-            >
-                0
-            </span>
+            <div class="stat-number">
+                24
+            </div>
 
-            <span class="stat-label">
-                Trusted Professionals
+            <span>
+                TRUSTED PROFESSIONALS
             </span>
 
         </div>
-
 
     </div>
 
 </section>
 
 
-
 <!-- =====================================================
-     PROPERTIES / GALLERY
+     PROPERTY GALLERY
 ===================================================== -->
 
 <section class="gallery-section" id="properties">
 
     <div class="gallery-title">
 
-        <p class="eyebrow">
-            OUR PROPERTIES
-        </p>
+        <div>
+            <div class="eyebrow">
+                OUR PROPERTIES
+            </div>
 
-        <h2>
-            Featured <span>Properties.</span>
-        </h2>
+            <h2>
+                FEATURED
+                <span>PROPERTIES.</span>
+            </h2>
+        </div>
 
     </div>
 
@@ -879,141 +924,50 @@
 
         <div class="gallery-track">
 
+            <img
+                src="images/property-1.jpg"
+                alt="Featured property"
+            >
 
-            <div class="gallery-item">
+            <img
+                src="images/property-2.jpg"
+                alt="Featured property"
+            >
 
-                <img
-                    src="assets/gallery-1.jpg"
-                    alt="Featured property"
-                    loading="lazy"
-                >
+            <img
+                src="images/property-3.jpg"
+                alt="Featured property"
+            >
 
-            </div>
+            <img
+                src="images/property-4.jpg"
+                alt="Featured property"
+            >
 
+            <img
+                src="images/property-5.jpg"
+                alt="Featured property"
+            >
 
-            <div class="gallery-item">
+            <img
+                src="images/property-6.jpg"
+                alt="Featured property"
+            >
 
-                <img
-                    src="assets/gallery-2.jpg"
-                    alt="Luxury property"
-                    loading="lazy"
-                >
+            <img
+                src="images/property-1.jpg"
+                alt="Featured property"
+            >
 
-            </div>
+            <img
+                src="images/property-2.jpg"
+                alt="Featured property"
+            >
 
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-3.jpg"
-                    alt="Modern home"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-4.jpg"
-                    alt="Residential property"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-5.jpg"
-                    alt="Property investment"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-6.jpg"
-                    alt="Modern real estate property"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-
-            <!-- DUPLICATE SET -->
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-1.jpg"
-                    alt="Featured property"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-2.jpg"
-                    alt="Luxury property"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-3.jpg"
-                    alt="Modern home"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-4.jpg"
-                    alt="Residential property"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-5.jpg"
-                    alt="Property investment"
-                    loading="lazy"
-                >
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="assets/gallery-6.jpg"
-                    alt="Modern real estate property"
-                    loading="lazy"
-                >
-
-            </div>
-
+            <img
+                src="images/property-3.jpg"
+                alt="Featured property"
+            >
 
         </div>
 
@@ -1022,51 +976,66 @@
 </section>
 
 
-
 <!-- =====================================================
-     MAJESTIC VIDEO TEXT
+     FULL VIDEO SECTION
 ===================================================== -->
 
-<section class="brand-video-section">
-
-    <canvas id="wallformTextCanvas"></canvas>
+<section class="video-section">
 
     <video
-        id="wallformTextVideo"
-        src="assets/wallform-text.mp4"
         autoplay
         muted
         loop
         playsinline
-        preload="auto"
-    ></video>
+        poster="images/video-poster.jpg"
+    >
 
-    <div class="brand-gold-line"></div>
+        <source src="assets/property-video.mp4" type="video/mp4">
+
+    </video>
+
+
+    <div class="video-overlay"></div>
+
+
+    <div class="video-content">
+
+        <div class="eyebrow">
+            YOUR NEXT MOVE
+        </div>
+
+        <h2>
+            A BETTER
+            <span>PLACE TO BEGIN.</span>
+        </h2>
+
+        <p>
+            Whether you're buying your first home, looking for
+            a new space or building your property portfolio,
+            Majestic Homes & Properties is ready to help.
+        </p>
+
+    </div>
 
 </section>
 
 
-
 <!-- =====================================================
-     PROPERTY GUIDANCE
+     GUIDANCE
 ===================================================== -->
 
-<section class="guidance section">
+<section class="guidance" id="guidance">
 
     <div class="section-heading">
 
-        <p class="eyebrow">
-            BUY WITH CONFIDENCE
-        </p>
+        <div class="eyebrow">
+            PROPERTY GUIDANCE
+        </div>
 
         <h2>
-            Protect your <span>investment.</span>
+            PROTECT YOUR
+            <span>INVESTMENT.</span>
         </h2>
-
-        <p>
-            Important things every buyer, seller and property
-            investor should consider before making a decision.
-        </p>
 
     </div>
 
@@ -1074,527 +1043,170 @@
     <div class="guidance-list">
 
 
-        <!-- 01 -->
+        <article class="guide-item active">
 
-        <div class="guide-item">
-
-            <div class="guide-header">
+            <button class="guide-header" type="button">
 
                 <div>
 
-                    <span class="guide-number">
+                    <span>
                         01
                     </span>
 
                     <h3>
-                        Title &amp; Document Verification
+                        KNOW WHAT YOU'RE BUYING
                     </h3>
 
                     <p>
-                        Know what you are buying
+                        Make property decisions with clarity.
                     </p>
 
                 </div>
 
-                <span class="guide-toggle">
+                <span class="guide-icon">
                     +
                 </span>
 
-            </div>
+            </button>
 
 
-            <div class="guide-body">
+            <div class="guide-content">
 
                 <p>
-                    Proper property documentation and verification
-                    are important before completing a transaction.
+                    We help you understand the property,
+                    its purpose and the important details
+                    before making a decision.
                 </p>
 
             </div>
 
-        </div>
+        </article>
 
 
+        <article class="guide-item">
 
-        <!-- 02 -->
-
-        <div class="guide-item">
-
-            <div class="guide-header">
+            <button class="guide-header" type="button">
 
                 <div>
 
-                    <span class="guide-number">
+                    <span>
                         02
                     </span>
 
                     <h3>
-                        Property Inspection
+                        UNDERSTAND YOUR OPTIONS
                     </h3>
 
                     <p>
-                        See it before you decide
+                        Compare opportunities properly.
                     </p>
 
                 </div>
 
-                <span class="guide-toggle">
+                <span class="guide-icon">
                     +
                 </span>
 
-            </div>
+            </button>
 
 
-            <div class="guide-body">
+            <div class="guide-content">
 
                 <p>
-                    Inspect the property and understand its condition,
-                    location and surrounding environment before making
-                    a final decision.
+                    From location and property type to budget
+                    and long-term goals, we help you consider
+                    the factors that matter.
                 </p>
 
             </div>
 
-        </div>
+        </article>
 
 
+        <article class="guide-item">
 
-        <!-- 03 -->
-
-        <div class="guide-item">
-
-            <div class="guide-header">
+            <button class="guide-header" type="button">
 
                 <div>
 
-                    <span class="guide-number">
+                    <span>
                         03
                     </span>
 
                     <h3>
-                        Agreements &amp; Documentation
+                        THINK LONG TERM
                     </h3>
 
                     <p>
-                        Keep everything clear
+                        Make decisions beyond today.
                     </p>
 
                 </div>
 
-                <span class="guide-toggle">
+                <span class="guide-icon">
                     +
                 </span>
 
-            </div>
-
-
-            <div class="guide-body">
-
-                <p>
-                    Important terms, agreements and transaction details
-                    should be properly documented.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 04 -->
-
-        <div class="guide-item">
-
-            <div class="guide-header">
-
-                <div>
-
-                    <span class="guide-number">
-                        04
-                    </span>
-
-                    <h3>
-                        Property Value
-                    </h3>
-
-                    <p>
-                        Understand what you are paying for
-                    </p>
-
-                </div>
-
-                <span class="guide-toggle">
-                    +
-                </span>
-
-            </div>
-
-
-            <div class="guide-body">
-
-                <p>
-                    Consider the property's location, condition,
-                    potential and market position before investing.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 05 -->
-
-        <div class="guide-item">
-
-            <div class="guide-header">
-
-                <div>
-
-                    <span class="guide-number">
-                        05
-                    </span>
-
-                    <h3>
-                        Payment Transparency
-                    </h3>
-
-                    <p>
-                        Know where your money goes
-                    </p>
-
-                </div>
-
-                <span class="guide-toggle">
-                    +
-                </span>
-
-            </div>
-
-
-            <div class="guide-body">
-
-                <p>
-                    Make sure prices, payment terms and other financial
-                    details are clearly understood before payment.
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- 06 -->
-
-        <div class="guide-item">
-
-            <div class="guide-header">
-
-                <div>
-
-                    <span class="guide-number">
-                        06
-                    </span>
-
-                    <h3>
-                        Handover &amp; Completion
-                    </h3>
-
-                    <p>
-                        Finish the process properly
-                    </p>
-
-                </div>
-
-                <span class="guide-toggle">
-                    +
-                </span>
-
-            </div>
-
-
-            <div class="guide-body">
-
-                <p>
-                    Ensure the required documents, keys and other
-                    agreed items are properly handed over.
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACT / PROPERTY ENQUIRY
-===================================================== -->
-
-<section class="quote-section" id="quote">
-
-    <div class="quote-container">
-
-
-        <div class="quote-intro">
-
-            <p class="eyebrow">
-                FIND YOUR PROPERTY
-            </p>
-
-            <h2>
-                Let's find <span>something.</span>
-            </h2>
-
-            <p>
-                Tell us what you're looking for and the Majestic Homes
-                &amp; Properties team will get back to you.
-            </p>
-
-        </div>
-
-
-
-        <form
-            action="https://formspree.io/f/YOUR_FORM_ID"
-            method="POST"
-            class="quote-form"
-            id="quoteForm"
-        >
-
-
-            <!-- PROGRESS -->
-
-            <div
-                class="form-progress"
-                id="formProgress"
-            ></div>
-
-
-
-            <!-- NAME -->
-
-            <div class="form-group">
-
-                <label for="name">
-                    Full Name
-                </label>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your full name"
-                    required
-                >
-
-            </div>
-
-
-
-            <!-- EMAIL -->
-
-            <div class="form-group">
-
-                <label for="email">
-                    Email Address
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Your email address"
-                    required
-                >
-
-            </div>
-
-
-
-            <!-- PHONE -->
-
-            <div class="form-group">
-
-                <label for="phone">
-                    Phone Number
-                </label>
-
-                <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Your phone number"
-                    required
-                >
-
-            </div>
-
-
-
-            <!-- SERVICE -->
-
-            <div class="form-group">
-
-                <label for="service">
-                    What do you need?
-                </label>
-
-                <select
-                    id="service"
-                    name="service"
-                    required
-                >
-
-                    <option value="">
-                        Select a service
-                    </option>
-
-                    <option value="Property Sales">
-                        Property Sales
-                    </option>
-
-                    <option value="Property Rental">
-                        Property Rental
-                    </option>
-
-                    <option value="Land">
-                        Land
-                    </option>
-
-                    <option value="Property Management">
-                        Property Management
-                    </option>
-
-                    <option value="Real Estate Consultancy">
-                        Real Estate Consultancy
-                    </option>
-
-                    <option value="Property Investment">
-                        Property Investment
-                    </option>
-
-                    <option value="Other">
-                        Other
-                    </option>
-
-                </select>
-
-            </div>
-
-
-
-            <!-- BUDGET -->
-
-            <div class="form-group">
-
-                <label for="budget">
-                    Budget
-                </label>
-
-                <input
-                    type="text"
-                    id="budget"
-                    name="budget"
-                    placeholder="Your budget"
-                >
-
-            </div>
-
-
-
-            <!-- LOCATION -->
-
-            <div class="form-group">
-
-                <label for="location">
-                    Preferred Location
-                </label>
-
-                <input
-                    type="text"
-                    id="location"
-                    name="location"
-                    placeholder="e.g. Lagos, Abuja, Ikorodu"
-                >
-
-            </div>
-
-
-
-            <!-- MESSAGE -->
-
-            <div class="form-group">
-
-                <label for="message">
-                    Tell us more
-                </label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    placeholder="Tell us what you're looking for..."
-                ></textarea>
-
-            </div>
-
-
-
-            <!-- SUBJECT -->
-
-            <input
-                type="hidden"
-                name="_subject"
-                value="New Majestic Homes & Properties Enquiry"
-            >
-
-
-
-            <!-- SUBMIT -->
-
-            <button
-                type="submit"
-                class="submit-button"
-            >
-                Send Enquiry
             </button>
 
 
-            <p
-                id="formMessage"
-                class="form-message"
-                aria-live="polite"
-            ></p>
+            <div class="guide-content">
 
+                <p>
+                    A good property decision should make sense
+                    not only today but also for your future plans.
+                </p>
 
-        </form>
+            </div>
+
+        </article>
+
 
     </div>
 
 </section>
 
+
+<!-- =====================================================
+     BRAND VIDEO CANVAS
+===================================================== -->
+
+<section class="brand-video-section">
+
+    <video
+        id="WallformTextVideo"
+        muted
+        loop
+        playsinline
+        preload="auto"
+    >
+
+        <source src="assets/wallform-text.mp4" type="video/mp4">
+
+    </video>
+
+    <canvas id="WallformTextCanvas"></canvas>
+
+    <div class="brand-gold-line"></div>
+
+</section>
 
 
 <!-- =====================================================
      TESTIMONIALS
 ===================================================== -->
 
-<section class="testimonials-section">
+<section class="testimonials-section" id="testimonials">
 
     <div class="testimonials-heading">
 
-        <p class="eyebrow">
-            TESTIMONIALS
-        </p>
+        <div class="eyebrow">
+            CLIENT EXPERIENCES
+        </div>
 
         <h2>
-            What our clients say.
+            WHAT OUR
+            <span>CLIENTS SAY.</span>
         </h2>
 
     </div>
@@ -1605,29 +1217,46 @@
         <div class="testimonials-track">
 
 
+            <!-- TESTIMONIAL 1 -->
+
             <article class="testimonial-card">
 
                 <div class="testimonial-stars">
                     ★★★★★
                 </div>
 
-                <p>
-                    “Majestic Homes &amp; Properties made the process
-                    much easier for us. Communication was clear and
-                    professional throughout.”
+                <p class="testimonial-quote">
+                    “Majestic Homes made the process much easier
+                    for me. They listened to what I wanted and
+                    helped me find a property that actually suited
+                    my needs.”
                 </p>
 
-                <strong>
-                    Client
-                </strong>
+                <div class="testimonial-client">
 
-                <span>
-                    Property Buyer
-                </span>
+                    <img
+                        src="images/client-1.jpg"
+                        alt="Client"
+                    >
+
+                    <div>
+
+                        <h4>
+                            Daniel Okafor
+                        </h4>
+
+                        <span>
+                            Property Client
+                        </span>
+
+                    </div>
+
+                </div>
 
             </article>
 
 
+            <!-- TESTIMONIAL 2 -->
 
             <article class="testimonial-card">
 
@@ -1635,23 +1264,37 @@
                     ★★★★★
                 </div>
 
-                <p>
-                    “The team understood exactly what we were looking
-                    for and helped us find a property that suited
-                    our needs.”
+                <p class="testimonial-quote">
+                    “The communication was clear from the beginning.
+                    I always knew what was happening and the team
+                    was available whenever I had questions.”
                 </p>
 
-                <strong>
-                    Client
-                </strong>
+                <div class="testimonial-client">
 
-                <span>
-                    Property Client
-                </span>
+                    <img
+                        src="images/client-2.jpg"
+                        alt="Client"
+                    >
+
+                    <div>
+
+                        <h4>
+                            Amaka Johnson
+                        </h4>
+
+                        <span>
+                            Home Buyer
+                        </span>
+
+                    </div>
+
+                </div>
 
             </article>
 
 
+            <!-- TESTIMONIAL 3 -->
 
             <article class="testimonial-card">
 
@@ -1659,22 +1302,37 @@
                     ★★★★★
                 </div>
 
-                <p>
-                    “Professional service, good communication and a
-                    smooth experience from enquiry to completion.”
+                <p class="testimonial-quote">
+                    “I needed professional help with my property
+                    and Majestic Homes handled everything in a
+                    straightforward and professional way.”
                 </p>
 
-                <strong>
-                    Client
-                </strong>
+                <div class="testimonial-client">
 
-                <span>
-                    Property Investor
-                </span>
+                    <img
+                        src="images/client-3.jpg"
+                        alt="Client"
+                    >
+
+                    <div>
+
+                        <h4>
+                            Michael Adeyemi
+                        </h4>
+
+                        <span>
+                            Property Owner
+                        </span>
+
+                    </div>
+
+                </div>
 
             </article>
 
 
+            <!-- TESTIMONIAL 4 -->
 
             <article class="testimonial-card">
 
@@ -1682,25 +1340,38 @@
                     ★★★★★
                 </div>
 
-                <p>
-                    “I appreciated the attention to detail and the
-                    effort put into helping us make the right
-                    property decision.”
+                <p class="testimonial-quote">
+                    “What stood out to me was the attention to
+                    detail. They didn't just try to sell me a
+                    property; they helped me understand my options.”
                 </p>
 
-                <strong>
-                    Client
-                </strong>
+                <div class="testimonial-client">
 
-                <span>
-                    Property Client
-                </span>
+                    <img
+                        src="images/client-4.jpg"
+                        alt="Client"
+                    >
+
+                    <div>
+
+                        <h4>
+                            Sarah Williams
+                        </h4>
+
+                        <span>
+                            Investor
+                        </span>
+
+                    </div>
+
+                </div>
 
             </article>
 
 
+            <!-- DUPLICATES FOR CONTINUOUS MARQUEE -->
 
-            <!-- DUPLICATE SET -->
 
             <article class="testimonial-card">
 
@@ -1708,90 +1379,141 @@
                     ★★★★★
                 </div>
 
-                <p>
-                    “Majestic Homes &amp; Properties made the process
-                    much easier for us. Communication was clear and
-                    professional throughout.”
+                <p class="testimonial-quote">
+                    “Majestic Homes made the process much easier
+                    for me. They listened to what I wanted and
+                    helped me find a property that actually suited
+                    my needs.”
                 </p>
 
-                <strong>
-                    Client
-                </strong>
+                <div class="testimonial-client">
 
-                <span>
-                    Property Buyer
-                </span>
+                    <img
+                        src="images/client-1.jpg"
+                        alt="Client"
+                    >
+
+                    <div>
+
+                        <h4>
+                            Daniel Okafor
+                        </h4>
+
+                        <span>
+                            Property Client
+                        </span>
+
+                    </div>
+
+                </div>
 
             </article>
 
 
-
             <article class="testimonial-card">
 
                 <div class="testimonial-stars">
                     ★★★★★
                 </div>
 
-                <p>
-                    “The team understood exactly what we were looking
-                    for and helped us find a property that suited
-                    our needs.”
+                <p class="testimonial-quote">
+                    “The communication was clear from the beginning.
+                    I always knew what was happening and the team
+                    was available whenever I had questions.”
                 </p>
 
-                <strong>
-                    Client
-                </strong>
+                <div class="testimonial-client">
 
-                <span>
-                    Property Client
-                </span>
+                    <img
+                        src="images/client-2.jpg"
+                        alt="Client"
+                    >
+
+                    <div>
+
+                        <h4>
+                            Amaka Johnson
+                        </h4>
+
+                        <span>
+                            Home Buyer
+                        </span>
+
+                    </div>
+
+                </div>
 
             </article>
 
 
-
             <article class="testimonial-card">
 
                 <div class="testimonial-stars">
                     ★★★★★
                 </div>
 
-                <p>
-                    “Professional service, good communication and a
-                    smooth experience from enquiry to completion.”
+                <p class="testimonial-quote">
+                    “I needed professional help with my property
+                    and Majestic Homes handled everything in a
+                    straightforward and professional way.”
                 </p>
 
-                <strong>
-                    Client
-                </strong>
+                <div class="testimonial-client">
 
-                <span>
-                    Property Investor
-                </span>
+                    <img
+                        src="images/client-3.jpg"
+                        alt="Client"
+                    >
+
+                    <div>
+
+                        <h4>
+                            Michael Adeyemi
+                        </h4>
+
+                        <span>
+                            Property Owner
+                        </span>
+
+                    </div>
+
+                </div>
 
             </article>
 
 
-
             <article class="testimonial-card">
 
                 <div class="testimonial-stars">
                     ★★★★★
                 </div>
 
-                <p>
-                    “I appreciated the attention to detail and the
-                    effort put into helping us make the right
-                    property decision.”
+                <p class="testimonial-quote">
+                    “What stood out to me was the attention to
+                    detail. They didn't just try to sell me a
+                    property; they helped me understand my options.”
                 </p>
 
-                <strong>
-                    Client
-                </strong>
+                <div class="testimonial-client">
 
-                <span>
-                    Property Client
-                </span>
+                    <img
+                        src="images/client-4.jpg"
+                        alt="Client"
+                    >
+
+                    <div>
+
+                        <h4>
+                            Sarah Williams
+                        </h4>
+
+                        <span>
+                            Investor
+                        </span>
+
+                    </div>
+
+                </div>
 
             </article>
 
@@ -1803,141 +1525,427 @@
 </section>
 
 
+<!-- =====================================================
+     TRUST
+===================================================== -->
+
+<section class="trust-section">
+
+    <p>
+        TRUSTED BY PEOPLE WHO VALUE GREAT PROPERTY
+    </p>
+
+    <div class="trust-track">
+
+        <span>
+            PROPERTY SALES
+        </span>
+
+        <span>
+            REAL ESTATE
+        </span>
+
+        <span>
+            PROPERTY MANAGEMENT
+        </span>
+
+        <span>
+            RENTALS
+        </span>
+
+        <span>
+            INVESTMENT
+        </span>
+
+        <span>
+            CONSULTANCY
+        </span>
+
+        <span>
+            PROPERTY SALES
+        </span>
+
+        <span>
+            REAL ESTATE
+        </span>
+
+        <span>
+            PROPERTY MANAGEMENT
+        </span>
+
+        <span>
+            RENTALS
+        </span>
+
+    </div>
+
+</section>
+
 
 <!-- =====================================================
-     SOCIAL
+     SOCIAL MEDIA
 ===================================================== -->
 
 <section class="social-section">
 
-    <div class="social-content">
+    <div class="social-links">
 
-        <p class="eyebrow">
-            STAY CONNECTED
-        </p>
+        <a
+            href="#"
+            class="social-icon"
+            aria-label="Instagram"
+        >
 
-        <h2>
-            Follow <span>Majestic.</span>
-        </h2>
-
-        <p>
-            Stay updated with our latest properties, real estate
-            opportunities and company updates.
-        </p>
-
-
-        <div class="social-links">
-
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
             >
-                Instagram
-            </a>
 
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
+                <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"
+                ></rect>
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                ></circle>
+
+                <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                    stroke="none"
+                ></circle>
+
+            </svg>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="social-icon"
+            aria-label="Facebook"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
             >
-                Facebook
-            </a>
 
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
+                <path
+                    d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v6h4v-6h3l1-4h-4V9c0-.7.3-1 1-1z"
+                ></path>
+
+            </svg>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="social-icon"
+            aria-label="WhatsApp"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
             >
-                LinkedIn
-            </a>
 
-            <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
+                <path
+                    d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"
+                ></path>
+
+                <path
+                    d="M8.5 8.5c.3-.5.6-.5.9-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.1.1-.1.3 0 .5.4.8 1.1 1.5 1.9 1.9.2.1.4.1.5 0l.7-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5v.5c0 .3-.1.6-.4.8-.4.3-1 .5-1.5.4-1.3-.2-2.6-.9-3.6-1.9-1-1-1.7-2.2-1.9-3.5-.1-.6.1-1.2.3-1.5Z"
+                ></path>
+
+            </svg>
+
+        </a>
+
+
+        <a
+            href="#"
+            class="social-icon"
+            aria-label="TikTok"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
             >
-                WhatsApp
-            </a>
 
-        </div>
+                <path
+                    d="M15 3h3c.2 1.6 1.1 2.8 2.7 3.5v3.1c-1.1-.1-2.1-.5-3-1v6.1a6.3 6.3 0 1 1-5.4-6.2v3.2a3 3 0 1 0 2.1 2.9V3h.6Z"
+                ></path>
+
+            </svg>
+
+        </a>
 
     </div>
 
 </section>
 
 
-</main>
+<!-- =====================================================
+     QUOTE / CONTACT FORM
+===================================================== -->
 
+<section class="quote-section" id="quote">
+
+    <div class="quote-container">
+
+        <div class="quote-intro">
+
+            <div class="eyebrow">
+                LET'S TALK PROPERTY
+            </div>
+
+            <h2>
+                TELL US WHAT
+                <span>YOU NEED.</span>
+            </h2>
+
+            <p>
+                Looking to buy, rent, sell or manage a property?
+                Send us your details and our team will get back
+                to you.
+            </p>
+
+        </div>
+
+
+        <form
+            class="quote-form"
+            action="https://formspree.io/f/your-form-id"
+            method="POST"
+        >
+
+            <div class="form-progress">
+
+                <div class="form-progress-bar"></div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        FULL NAME
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        EMAIL
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Your email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        PHONE
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Your phone number"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="service">
+                        WHAT DO YOU NEED?
+                    </label>
+
+                    <select
+                        id="service"
+                        name="service"
+                        required
+                    >
+
+                        <option value="">
+                            Select an option
+                        </option>
+
+                        <option value="buy">
+                            Buy a Property
+                        </option>
+
+                        <option value="rent">
+                            Rent a Property
+                        </option>
+
+                        <option value="sell">
+                            Sell a Property
+                        </option>
+
+                        <option value="management">
+                            Property Management
+                        </option>
+
+                        <option value="consultancy">
+                            Real Estate Consultancy
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="message">
+                    MESSAGE
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Tell us what you're looking for..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-button"
+            >
+                SEND ENQUIRY
+            </button>
+
+
+            <p
+                class="form-message"
+                aria-live="polite"
+            ></p>
+
+        </form>
+
+    </div>
+
+</section>
 
 
 <!-- =====================================================
      FOOTER
 ===================================================== -->
 
-<footer class="footer">
+<footer class="footer" id="contact">
 
     <div class="footer-container">
 
 
         <div class="footer-brand">
 
-            <a href="#top" class="logo">
-
+            <a href="#home" class="logo">
                 MAJESTIC
-
-                <span>
-                    HOMES
-                </span>
-
+                <span>HOMES</span>
             </a>
 
             <p>
-                Property Sales · Rentals · Management
+                Majestic Homes & Properties helps people find,
+                secure and manage property with confidence.
             </p>
 
         </div>
 
 
+        <div class="footer-column">
 
-        <div class="footer-contact">
-
-            <h4>
-                Contact
-            </h4>
-
-            <a href="tel:+15550123456">
-                +1 (555) 012-3456
-            </a>
-
-            <a href="mailto:hello@majesticproperties.com">
-                hello@majesticproperties.com
-            </a>
+            <h3>
+                CONTACT
+            </h3>
 
             <p>
-                Your Location, Nigeria
+                Lagos, Nigeria
+            </p>
+
+            <p>
+                Email: info@majestichomes.com
+            </p>
+
+            <p>
+                Phone: +234 000 000 0000
             </p>
 
         </div>
 
 
+        <div class="footer-column">
 
-        <div class="footer-links">
+            <h3>
+                QUICK LINKS
+            </h3>
 
-            <h4>
-                Quick Links
-            </h4>
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
 
             <a href="#services">
                 Services
             </a>
 
-            <a href="#subsidiaries">
-                Our Partners
-            </a>
-
             <a href="#properties">
                 Properties
+            </a>
+
+            <a href="#testimonials">
+                Testimonials
             </a>
 
             <a href="#quote">
@@ -1947,12 +1955,11 @@
         </div>
 
 
+        <div class="footer-column">
 
-        <div class="footer-social">
-
-            <h4>
-                Social
-            </h4>
+            <h3>
+                SOCIAL
+            </h3>
 
             <a href="#">
                 Instagram
@@ -1963,50 +1970,593 @@
             </a>
 
             <a href="#">
-                LinkedIn
+                WhatsApp
             </a>
 
             <a href="#">
-                WhatsApp
+                TikTok
             </a>
 
         </div>
 
-
     </div>
-
 
 
     <div class="footer-bottom">
 
-        <span>
-            Majestic Homes &amp; Properties · Real Estate
-        </span>
+        <p>
+            © 2026 Majestic Homes & Properties. All rights reserved.
+        </p>
 
-        <span>
-            © 2026 Majestic Homes &amp; Properties.
-            All rights reserved.
-        </span>
+        <p>
+            Real Estate • Property • Investment
+        </p>
 
     </div>
 
 </footer>
 
 
-
-<!-- FLOATING CALL BUTTON -->
+<!-- =====================================================
+     FLOATING CALL
+===================================================== -->
 
 <a
-    href="tel:+15550123456"
+    href="#quote"
     class="floating-call"
-    aria-label="Call Majestic Homes & Properties"
+    aria-label="Contact Majestic Homes"
 >
-    ☎
+    <span>
+        ↗
+    </span>
 </a>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-<script src="script.js"></script>
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuButton = document.querySelector(".menu-button");
+    const mobileMenu = document.querySelector(".mobile-menu");
+
+    if (menuButton && mobileMenu) {
+
+        menuButton.addEventListener("click", () => {
+
+            mobileMenu.classList.toggle("active");
+            menuButton.classList.toggle("active");
+
+        });
+
+
+        mobileMenu.querySelectorAll("a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                mobileMenu.classList.remove("active");
+                menuButton.classList.remove("active");
+
+            });
+
+        });
+
+    }
+
+
+    /* =====================================================
+       NAVBAR SCROLL
+    ===================================================== */
+
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 40) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+    /* =====================================================
+       LONG TERM SERVICES ACCORDION
+    ===================================================== */
+
+    const serviceCards = document.querySelectorAll(
+        ".long-term-services .service-card"
+    );
+
+    serviceCards.forEach(card => {
+
+        const header = card.querySelector(".service-header");
+
+        if (!header) return;
+
+        header.addEventListener("click", () => {
+
+            serviceCards.forEach(otherCard => {
+
+                if (otherCard !== card) {
+                    otherCard.classList.remove("active");
+                }
+
+            });
+
+            card.classList.toggle("active");
+
+        });
+
+    });
+
+
+    /* =====================================================
+       SECOND SERVICES ACCORDION
+    ===================================================== */
+
+    const secondServiceCards = document.querySelectorAll(
+        "#second-services .service-card"
+    );
+
+    secondServiceCards.forEach(card => {
+
+        const header = card.querySelector(".service-header");
+
+        if (!header) return;
+
+        header.addEventListener("click", () => {
+
+            secondServiceCards.forEach(otherCard => {
+
+                if (otherCard !== card) {
+                    otherCard.classList.remove("active");
+                }
+
+            });
+
+            card.classList.toggle("active");
+
+        });
+
+    });
+
+
+    /* =====================================================
+       GUIDANCE ACCORDION
+    ===================================================== */
+
+    const guideItems = document.querySelectorAll(".guide-item");
+
+    guideItems.forEach(item => {
+
+        const header = item.querySelector(".guide-header");
+
+        if (!header) return;
+
+        header.addEventListener("click", () => {
+
+            guideItems.forEach(otherItem => {
+
+                if (otherItem !== item) {
+                    otherItem.classList.remove("active");
+                }
+
+            });
+
+            item.classList.toggle("active");
+
+        });
+
+    });
+
+
+    /* =====================================================
+       HERO VIDEO
+    ===================================================== */
+
+    const heroVideo = document.querySelector(".hero-video");
+
+    if (heroVideo) {
+
+        heroVideo.play().catch(() => {});
+
+    }
+
+
+    /* =====================================================
+       BRAND VIDEO CANVAS
+       TEXT: MAJESTIC
+    ===================================================== */
+
+    const brandVideo =
+        document.getElementById("WallformTextVideo");
+
+    const brandCanvas =
+        document.getElementById("WallformTextCanvas");
+
+    const cynosureVideo =
+        document.getElementById("cynosureTextVideo");
+
+    const cynosureCanvas =
+        document.getElementById("cynosureTextCanvas");
+
+
+    function setupBrandCanvas(video, canvas) {
+
+        if (!video || !canvas) return;
+
+        const ctx = canvas.getContext("2d");
+
+        if (!ctx) return;
+
+
+        function resizeCanvas() {
+
+            const width = 1400;
+            const height = 500;
+
+            canvas.width = width;
+            canvas.height = height;
+
+        }
+
+
+        function drawText() {
+
+            const width = canvas.width;
+            const height = canvas.height;
+
+            ctx.clearRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+
+            /*
+             * Draw the video as a texture
+             * clipped through the MAJESTIC text.
+             */
+
+            ctx.save();
+
+            ctx.font =
+                "700 170px Oswald, sans-serif";
+
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            ctx.fillStyle = "#ffffff";
+
+            ctx.fillText(
+                "MAJESTIC",
+                width / 2,
+                height / 2
+            );
+
+            ctx.globalCompositeOperation =
+                "source-in";
+
+
+            if (
+                video.readyState >= 2 &&
+                video.videoWidth
+            ) {
+
+                const scale = Math.max(
+                    width / video.videoWidth,
+                    height / video.videoHeight
+                );
+
+                const videoWidth =
+                    video.videoWidth * scale;
+
+                const videoHeight =
+                    video.videoHeight * scale;
+
+                const x =
+                    (width - videoWidth) / 2;
+
+                const y =
+                    (height - videoHeight) / 2;
+
+                ctx.drawImage(
+                    video,
+                    x,
+                    y,
+                    videoWidth,
+                    videoHeight
+                );
+
+            } else {
+
+                ctx.fillStyle = "#c9a45c";
+
+                ctx.fillText(
+                    "MAJESTIC",
+                    width / 2,
+                    height / 2
+                );
+
+            }
+
+            ctx.restore();
+
+            requestAnimationFrame(drawText);
+
+        }
+
+
+        resizeCanvas();
+
+        window.addEventListener(
+            "resize",
+            resizeCanvas
+        );
+
+
+        video.play().catch(() => {});
+
+        drawText();
+
+    }
+
+
+    setupBrandCanvas(
+        brandVideo,
+        brandCanvas
+    );
+
+    setupBrandCanvas(
+        cynosureVideo,
+        cynosureCanvas
+    );
+
+
+    /* =====================================================
+       STAT COUNTERS
+    ===================================================== */
+
+    const statNumbers =
+        document.querySelectorAll(".stat-number");
+
+    const statObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) return;
+
+                    const element =
+                        entry.target;
+
+                    if (
+                        element.dataset.animated
+                    ) return;
+
+                    element.dataset.animated = "true";
+
+                    const original =
+                        element.textContent.trim();
+
+                    const match =
+                        original.match(
+                            /(\d+)(.*)/
+                        );
+
+                    if (!match) return;
+
+                    const target =
+                        parseInt(match[1], 10);
+
+                    const suffix =
+                        match[2] || "";
+
+                    let current = 0;
+
+                    const duration = 1500;
+
+                    const start =
+                        performance.now();
+
+
+                    function animate(time) {
+
+                        const progress =
+                            Math.min(
+                                (time - start) /
+                                duration,
+                                1
+                            );
+
+                        current =
+                            Math.floor(
+                                progress * target
+                            );
+
+                        element.textContent =
+                            current + suffix;
+
+                        if (progress < 1) {
+
+                            requestAnimationFrame(
+                                animate
+                            );
+
+                        } else {
+
+                            element.textContent =
+                                original;
+
+                        }
+
+                    }
+
+                    requestAnimationFrame(
+                        animate
+                    );
+
+                });
+
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+
+    statNumbers.forEach(number => {
+
+        statObserver.observe(number);
+
+    });
+
+
+    /* =====================================================
+       FORM PROGRESS
+    ===================================================== */
+
+    const quoteForm =
+        document.querySelector(".quote-form");
+
+    const progressBar =
+        document.querySelector(".form-progress-bar");
+
+    if (quoteForm && progressBar) {
+
+        const inputs =
+            quoteForm.querySelectorAll(
+                "input, select, textarea"
+            );
+
+        function updateProgress() {
+
+            let completed = 0;
+
+            inputs.forEach(input => {
+
+                if (
+                    input.value.trim() !== ""
+                ) {
+
+                    completed++;
+
+                }
+
+            });
+
+            const percentage =
+                (completed / inputs.length) * 100;
+
+            progressBar.style.width =
+                percentage + "%";
+
+        }
+
+
+        inputs.forEach(input => {
+
+            input.addEventListener(
+                "input",
+                updateProgress
+            );
+
+            input.addEventListener(
+                "change",
+                updateProgress
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       FORM MESSAGE
+    ===================================================== */
+
+    if (quoteForm) {
+
+        quoteForm.addEventListener(
+            "submit",
+            () => {
+
+                const message =
+                    quoteForm.querySelector(
+                        ".form-message"
+                    );
+
+                if (message) {
+
+                    message.textContent =
+                        "Sending your enquiry...";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       SMOOTH SCROLL
+    ===================================================== */
+
+    document.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach(link => {
+
+        link.addEventListener(
+            "click",
+            event => {
+
+                const targetId =
+                    link.getAttribute("href");
+
+                if (
+                    !targetId ||
+                    targetId === "#"
+                ) return;
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+                if (!target) return;
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+        );
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
