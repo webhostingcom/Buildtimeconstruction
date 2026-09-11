@@ -1,9 +1,10 @@
 /* =========================================
-   WALLFORM CONSTRUCTION
+   MAJESTIC HOMES & PROPERTIES
    MAIN JAVASCRIPT
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
 
     /* =========================================
        MOBILE MENU
@@ -28,15 +29,20 @@ document.addEventListener("DOMContentLoaded", () => {
             if (lines.length >= 3) {
 
                 lines[0].style.transform =
-                    isOpen ? "translateY(7px) rotate(45deg)" : "";
+                    isOpen
+                        ? "translateY(7px) rotate(45deg)"
+                        : "";
 
                 lines[1].style.opacity =
                     isOpen ? "0" : "";
 
                 lines[2].style.transform =
-                    isOpen ? "translateY(-7px) rotate(-45deg)" : "";
+                    isOpen
+                        ? "translateY(-7px) rotate(-45deg)"
+                        : "";
             }
         });
+
 
         mobileMenu.querySelectorAll("a").forEach((link) => {
 
@@ -49,9 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     "false"
                 );
 
-                const lines = menuButton.querySelectorAll("span");
+                const lines =
+                    menuButton.querySelectorAll("span");
 
                 if (lines.length >= 3) {
+
                     lines[0].style.transform = "";
                     lines[1].style.opacity = "";
                     lines[2].style.transform = "";
@@ -60,26 +68,31 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
         });
+
     }
+
 
 
     /* =========================================
        SERVICE ACCORDIONS
     ========================================= */
 
-    const serviceCards = document.querySelectorAll(
-        "#second-services .service-card"
-    );
+    const serviceCards =
+        document.querySelectorAll(
+            "#second-services .service-card"
+        );
 
     serviceCards.forEach((card) => {
 
-        const header = card.querySelector(".service-header");
+        const header =
+            card.querySelector(".service-header");
 
         if (!header) return;
 
         header.addEventListener("click", () => {
 
-            const wasActive = card.classList.contains("active");
+            const wasActive =
+                card.classList.contains("active");
 
             serviceCards.forEach((item) => {
                 item.classList.remove("active");
@@ -94,21 +107,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
     /* =========================================
-       BUILD WITH CONFIDENCE ACCORDIONS
+       PROPERTY GUIDANCE ACCORDIONS
     ========================================= */
 
-    const guideItems = document.querySelectorAll(".guide-item");
+    const guideItems =
+        document.querySelectorAll(".guide-item");
 
     guideItems.forEach((item) => {
 
-        const header = item.querySelector(".guide-header");
+        const header =
+            item.querySelector(".guide-header");
 
         if (!header) return;
 
         header.addEventListener("click", () => {
 
-            const wasActive = item.classList.contains("active");
+            const wasActive =
+                item.classList.contains("active");
 
             guideItems.forEach((guide) => {
                 guide.classList.remove("active");
@@ -123,19 +140,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
     /* =========================================
        BUTTONS + SMOOTH SCROLL
     ========================================= */
 
-    const internalLinks = document.querySelectorAll(
-        'a[href^="#"]'
-    );
+    const internalLinks =
+        document.querySelectorAll('a[href^="#"]');
 
     internalLinks.forEach((link) => {
 
         link.addEventListener("click", (event) => {
 
-            const targetId = link.getAttribute("href");
+            const targetId =
+                link.getAttribute("href");
 
             if (!targetId || targetId === "#") {
                 return;
@@ -144,30 +162,39 @@ document.addEventListener("DOMContentLoaded", () => {
             let target = null;
 
             try {
-                target = document.querySelector(targetId);
+
+                target =
+                    document.querySelector(targetId);
+
             } catch (error) {
+
                 console.warn(
                     "Invalid button/link target:",
                     targetId
                 );
+
                 return;
             }
 
             if (!target) {
+
                 console.warn(
                     "Button target not found:",
                     targetId
                 );
+
                 return;
             }
 
             event.preventDefault();
 
-            const navbar = document.querySelector(".navbar");
+            const navbar =
+                document.querySelector(".navbar");
 
-            const navbarHeight = navbar
-                ? navbar.offsetHeight
-                : 0;
+            const navbarHeight =
+                navbar
+                    ? navbar.offsetHeight
+                    : 0;
 
             const targetPosition =
                 target.getBoundingClientRect().top +
@@ -185,11 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
     /* =========================================
        NAVBAR SCROLL EFFECT
     ========================================= */
 
-    const navbar = document.querySelector(".navbar");
+    const navbar =
+        document.querySelector(".navbar");
 
     function updateNavbar() {
 
@@ -205,6 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
             navbar.style.background =
                 "rgba(8, 8, 8, 0.9)";
         }
+
     }
 
     if (navbar) {
@@ -220,8 +250,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
     /* =========================================
-       QUOTE FORM PROGRESS
+       PROPERTY ENQUIRY FORM PROGRESS
     ========================================= */
 
     const quoteForm =
@@ -232,14 +263,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (quoteForm && progressBar) {
 
-        const fields = quoteForm.querySelectorAll(
-            "input:not([type='hidden']), select, textarea"
-        );
+        const fields =
+            quoteForm.querySelectorAll(
+                "input:not([type='hidden']), select, textarea"
+            );
+
 
         function updateProgress() {
 
             if (!fields.length) {
+
                 progressBar.style.width = "0%";
+
                 return;
             }
 
@@ -251,7 +286,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     field.value &&
                     field.value.trim() !== ""
                 ) {
+
                     completed++;
+
                 }
 
             });
@@ -261,7 +298,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             progressBar.style.width =
                 percentage + "%";
+
         }
+
 
         fields.forEach((field) => {
 
@@ -280,6 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateProgress();
 
 
+
         /* =========================================
            FORMSPREE
         ========================================= */
@@ -291,10 +331,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.preventDefault();
 
                 const submitButton =
-                    quoteForm.querySelector(".submit-button");
+                    quoteForm.querySelector(
+                        ".submit-button"
+                    );
 
                 const message =
-                    document.getElementById("formMessage");
+                    document.getElementById(
+                        "formMessage"
+                    );
 
                 if (!submitButton || !message) {
                     return;
@@ -304,24 +348,34 @@ document.addEventListener("DOMContentLoaded", () => {
                     submitButton.innerHTML;
 
                 submitButton.disabled = true;
-                submitButton.innerHTML = "Sending...";
+
+                submitButton.innerHTML =
+                    "Sending...";
 
                 message.textContent = "";
+
                 message.style.color = "";
+
 
                 try {
 
                     if (
                         !quoteForm.action ||
-                        quoteForm.action.includes("YOUR_FORM_ID")
+                        quoteForm.action.includes(
+                            "YOUR_FORM_ID"
+                        )
                     ) {
+
                         throw new Error(
                             "Formspree form URL has not been configured."
                         );
+
                     }
+
 
                     const formData =
                         new FormData(quoteForm);
+
 
                     const response =
                         await fetch(
@@ -336,24 +390,31 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         );
 
+
                     if (!response.ok) {
+
                         throw new Error(
                             "Form submission failed."
                         );
+
                     }
 
+
                     message.textContent =
-                        "Thank you. Your request has been sent successfully.";
+                        "Thank you. Your enquiry has been sent successfully.";
 
                     message.style.color =
                         "#3d8b40";
+
 
                     quoteForm.reset();
 
                     updateProgress();
 
+
                     submitButton.innerHTML =
-                        "Request Sent ✓";
+                        "Enquiry Sent ✓";
+
 
                     setTimeout(() => {
 
@@ -365,6 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     }, 4000);
 
+
                 } catch (error) {
 
                     console.error(error);
@@ -374,6 +436,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     message.style.color =
                         "#b42318";
+
 
                     submitButton.innerHTML =
                         originalText;
@@ -385,35 +448,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
         );
+
     }
+
 
 
     /* =========================================
        IMAGE ERROR HANDLING
     ========================================= */
 
-    document.querySelectorAll("img").forEach((image) => {
+    document
+        .querySelectorAll("img")
+        .forEach((image) => {
 
-        image.addEventListener("error", () => {
+            image.addEventListener(
+                "error",
+                () => {
 
-            console.warn(
-                "Image could not be loaded:",
-                image.src
+                    console.warn(
+                        "Image could not be loaded:",
+                        image.src
+                    );
+
+                    image.style.background =
+                        "#222";
+
+                }
             );
-
-            image.style.background = "#222";
 
         });
 
-    });
 
 
     /* =========================================
-       HERO / BACKGROUND VIDEO
+       HERO VIDEO
     ========================================= */
 
     const heroVideo =
-        document.querySelector(".video-section video");
+        document.querySelector(
+            ".hero-video"
+        );
 
     if (heroVideo) {
 
@@ -422,7 +496,7 @@ document.addEventListener("DOMContentLoaded", () => {
             () => {
 
                 console.warn(
-                    "Background video could not be loaded."
+                    "Hero video could not be loaded."
                 );
 
             }
@@ -431,36 +505,63 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
     /* =========================================
-       WALLFORM VIDEO INSIDE TEXT
+       MAJESTIC VIDEO INSIDE TEXT
     ========================================= */
 
-    const wallformVideo =
-        document.getElementById("wallformTextVideo");
+    /*
+       The HTML still uses:
+       wallformTextVideo
+       wallformTextCanvas
 
-    const wallformCanvas =
-        document.getElementById("wallformTextCanvas");
+       We keep those IDs so the existing CSS
+       doesn't break.
 
-    if (wallformVideo && wallformCanvas) {
+       The visible text itself is now:
+       MAJESTIC
+    */
+
+    const majesticVideo =
+        document.getElementById(
+            "wallformTextVideo"
+        );
+
+    const majesticCanvas =
+        document.getElementById(
+            "wallformTextCanvas"
+        );
+
+
+    if (majesticVideo && majesticCanvas) {
 
         const ctx =
-            wallformCanvas.getContext("2d");
+            majesticCanvas.getContext("2d");
+
 
         if (ctx) {
 
             let animationStarted = false;
 
 
-            function resizeWallformCanvas() {
+            /* -----------------------------------------
+               RESIZE CANVAS
+            ----------------------------------------- */
+
+            function resizeMajesticCanvas() {
 
                 const width =
                     Math.min(
-                        Math.max(window.innerWidth - 40, 280),
+                        Math.max(
+                            window.innerWidth - 40,
+                            280
+                        ),
                         1400
                     );
 
                 const height =
                     width * 0.38;
+
 
                 const dpr =
                     Math.min(
@@ -468,17 +569,24 @@ document.addEventListener("DOMContentLoaded", () => {
                         2
                     );
 
-                wallformCanvas.width =
-                    Math.floor(width * dpr);
 
-                wallformCanvas.height =
-                    Math.floor(height * dpr);
+                majesticCanvas.width =
+                    Math.floor(
+                        width * dpr
+                    );
 
-                wallformCanvas.style.width =
+                majesticCanvas.height =
+                    Math.floor(
+                        height * dpr
+                    );
+
+
+                majesticCanvas.style.width =
                     width + "px";
 
-                wallformCanvas.style.height =
+                majesticCanvas.style.height =
                     height + "px";
+
 
                 ctx.setTransform(
                     dpr,
@@ -492,18 +600,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            function drawWallformText() {
+
+            /* -----------------------------------------
+               DRAW MAJESTIC TEXT
+            ----------------------------------------- */
+
+            function drawMajesticText() {
 
                 const width =
-                    wallformCanvas.clientWidth;
+                    majesticCanvas.clientWidth;
 
                 const height =
-                    wallformCanvas.clientHeight;
+                    majesticCanvas.clientHeight;
+
 
                 if (!width || !height) {
 
                     requestAnimationFrame(
-                        drawWallformText
+                        drawMajesticText
                     );
 
                     return;
@@ -519,10 +633,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /* -----------------------------------------
-                   DRAW WALLFORM TEXT AS MASK
+                   DRAW MAJESTIC AS MASK
                 ----------------------------------------- */
 
                 ctx.save();
+
 
                 const fontSize =
                     Math.min(
@@ -530,46 +645,56 @@ document.addEventListener("DOMContentLoaded", () => {
                         230
                     );
 
+
                 ctx.font =
                     `900 ${fontSize}px Arial, sans-serif`;
+
 
                 ctx.textAlign =
                     "center";
 
+
                 ctx.textBaseline =
                     "middle";
+
 
                 ctx.fillStyle =
                     "#ffffff";
 
+
                 ctx.fillText(
-                    "WALLFORM",
+                    "MAJESTIC",
                     width / 2,
                     height / 2
                 );
 
+
                 ctx.restore();
 
 
+
                 /* -----------------------------------------
-                   VIDEO INSIDE WALLFORM
+                   PUT VIDEO INSIDE MAJESTIC
                 ----------------------------------------- */
 
                 if (
-                    wallformVideo.readyState >= 2 &&
-                    wallformVideo.videoWidth > 0 &&
-                    wallformVideo.videoHeight > 0
+                    majesticVideo.readyState >= 2 &&
+                    majesticVideo.videoWidth > 0 &&
+                    majesticVideo.videoHeight > 0
                 ) {
 
                     ctx.globalCompositeOperation =
                         "source-in";
 
+
                     const videoRatio =
-                        wallformVideo.videoWidth /
-                        wallformVideo.videoHeight;
+                        majesticVideo.videoWidth /
+                        majesticVideo.videoHeight;
+
 
                     const canvasRatio =
                         width / height;
+
 
                     let drawWidth;
                     let drawHeight;
@@ -577,39 +702,51 @@ document.addEventListener("DOMContentLoaded", () => {
                     let offsetY;
 
 
-                    if (videoRatio > canvasRatio) {
+                    if (
+                        videoRatio >
+                        canvasRatio
+                    ) {
 
-                        drawHeight = height;
+                        drawHeight =
+                            height;
 
                         drawWidth =
-                            height * videoRatio;
+                            height *
+                            videoRatio;
 
                         offsetX =
-                            (width - drawWidth) / 2;
+                            (width -
+                                drawWidth) / 2;
 
                         offsetY = 0;
 
+
                     } else {
 
-                        drawWidth = width;
+                        drawWidth =
+                            width;
 
                         drawHeight =
-                            width / videoRatio;
+                            width /
+                            videoRatio;
 
                         offsetX = 0;
 
                         offsetY =
-                            (height - drawHeight) / 2;
+                            (height -
+                                drawHeight) / 2;
+
                     }
 
 
                     ctx.drawImage(
-                        wallformVideo,
+                        majesticVideo,
                         offsetX,
                         offsetY,
                         drawWidth,
                         drawHeight
                     );
+
 
                     ctx.globalCompositeOperation =
                         "source-over";
@@ -618,25 +755,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 requestAnimationFrame(
-                    drawWallformText
+                    drawMajesticText
                 );
 
             }
 
 
-            function startWallformVideo() {
 
-                resizeWallformCanvas();
+            /* -----------------------------------------
+               START MAJESTIC VIDEO
+            ----------------------------------------- */
+
+            function startMajesticVideo() {
+
+                resizeMajesticCanvas();
+
 
                 const playPromise =
-                    wallformVideo.play();
+                    majesticVideo.play();
+
 
                 if (playPromise) {
 
                     playPromise.catch(() => {
+
                         console.warn(
-                            "Wallform text video could not autoplay."
+                            "Majestic text video could not autoplay."
                         );
+
                     });
 
                 }
@@ -647,7 +793,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     animationStarted = true;
 
                     requestAnimationFrame(
-                        drawWallformText
+                        drawMajesticText
                     );
 
                 }
@@ -655,42 +801,46 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
 
-            wallformVideo.addEventListener(
+
+            majesticVideo.addEventListener(
                 "loadeddata",
-                startWallformVideo
+                startMajesticVideo
             );
 
-            wallformVideo.addEventListener(
+
+            majesticVideo.addEventListener(
                 "canplay",
-                startWallformVideo
+                startMajesticVideo
             );
 
-            wallformVideo.addEventListener(
+
+            majesticVideo.addEventListener(
                 "playing",
-                startWallformVideo
+                startMajesticVideo
             );
 
 
             window.addEventListener(
                 "resize",
-                resizeWallformCanvas
+                resizeMajesticCanvas
             );
 
 
-            resizeWallformCanvas();
+            resizeMajesticCanvas();
 
 
             if (
-                wallformVideo.readyState >= 2
+                majesticVideo.readyState >= 2
             ) {
 
-                startWallformVideo();
+                startMajesticVideo();
 
             }
 
         }
 
     }
+
 
 
     /* =========================================
@@ -705,35 +855,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function startCounter(counter) {
 
-        if (counter.dataset.counted === "true") {
+        if (
+            counter.dataset.counted === "true"
+        ) {
             return;
         }
+
 
         const target =
             Number(
                 counter.dataset.target
             );
 
+
         if (!Number.isFinite(target)) {
             return;
         }
 
-        counter.dataset.counted = "true";
+
+        counter.dataset.counted =
+            "true";
+
 
         const duration = 1600;
+
 
         const startTime =
             performance.now();
 
 
-        function updateCounter(currentTime) {
+        function updateCounter(
+            currentTime
+        ) {
 
             const progress =
                 Math.min(
-                    (currentTime - startTime) /
-                    duration,
+                    (
+                        currentTime -
+                        startTime
+                    ) / duration,
                     1
                 );
+
 
             const eased =
                 1 -
@@ -742,10 +905,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     3
                 );
 
+
             const value =
                 Math.floor(
                     target * eased
                 );
+
 
             counter.textContent =
                 value.toLocaleString();
@@ -769,6 +934,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         counter.textContent = "0";
 
+
         requestAnimationFrame(
             updateCounter
         );
@@ -776,31 +942,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
     if (counters.length) {
 
-        if ("IntersectionObserver" in window) {
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
 
             const counterObserver =
                 new IntersectionObserver(
                     (entries) => {
 
-                        entries.forEach((entry) => {
+                        entries.forEach(
+                            (entry) => {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                                if (
+                                    entry.isIntersecting
+                                ) {
 
-                                startCounter(
-                                    entry.target
-                                );
+                                    startCounter(
+                                        entry.target
+                                    );
 
-                                counterObserver.unobserve(
-                                    entry.target
-                                );
+
+                                    counterObserver.unobserve(
+                                        entry.target
+                                    );
+
+                                }
 
                             }
-
-                        });
+                        );
 
                     },
                     {
@@ -809,100 +982,159 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
 
-            counters.forEach((counter) => {
+            counters.forEach(
+                (counter) => {
 
-                counterObserver.observe(
-                    counter
-                );
+                    counterObserver.observe(
+                        counter
+                    );
 
-            });
+                }
+            );
+
 
         } else {
 
-            counters.forEach((counter) => {
-                startCounter(counter);
-            });
+            counters.forEach(
+                (counter) => {
+
+                    startCounter(
+                        counter
+                    );
+
+                }
+            );
 
         }
 
     }
 
 
+
     /* =========================================
        TESTIMONIALS AUTO MOVE
-       SAFE VERSION
     ========================================= */
+
+    /*
+       The new HTML uses:
+
+       .testimonials-marquee
+       .testimonials-track
+       .testimonial-card
+
+       So we target .testimonials-track directly.
+    */
 
     const testimonialTrack =
         document.querySelector(
-            ".testimonials-section .horizontal-wrapper"
+            ".testimonials-section .testimonials-track"
         );
+
 
     if (testimonialTrack) {
 
         let testimonialPosition = 0;
+
         let testimonialPaused = false;
+
 
         const testimonialCards =
             testimonialTrack.children;
 
-        if (testimonialCards.length > 1) {
+
+        if (
+            testimonialCards.length > 1
+        ) {
+
 
             testimonialTrack.addEventListener(
                 "mouseenter",
                 () => {
-                    testimonialPaused = true;
+
+                    testimonialPaused =
+                        true;
+
                 }
             );
+
 
             testimonialTrack.addEventListener(
                 "mouseleave",
                 () => {
-                    testimonialPaused = false;
+
+                    testimonialPaused =
+                        false;
+
                 }
             );
+
 
             testimonialTrack.addEventListener(
                 "touchstart",
                 () => {
-                    testimonialPaused = true;
+
+                    testimonialPaused =
+                        true;
+
                 },
-                { passive: true }
+                {
+                    passive: true
+                }
             );
+
 
             testimonialTrack.addEventListener(
                 "touchend",
                 () => {
+
                     setTimeout(() => {
-                        testimonialPaused = false;
+
+                        testimonialPaused =
+                            false;
+
                     }, 1500);
+
                 },
-                { passive: true }
+                {
+                    passive: true
+                }
             );
+
 
 
             function moveTestimonials() {
 
-                if (!testimonialPaused) {
+                if (
+                    !testimonialPaused
+                ) {
 
-                    testimonialPosition -= 0.25;
+                    testimonialPosition -=
+                        0.25;
+
 
                     const firstCard =
                         testimonialCards[0];
+
 
                     if (firstCard) {
 
                         const cardWidth =
                             firstCard.offsetWidth;
 
+
                         const gap = 24;
 
+
                         if (
-                            Math.abs(testimonialPosition) >=
+                            Math.abs(
+                                testimonialPosition
+                            ) >=
                             cardWidth + gap
                         ) {
 
-                            testimonialPosition = 0;
+                            testimonialPosition =
+                                0;
+
 
                             testimonialTrack.appendChild(
                                 testimonialTrack.firstElementChild
@@ -910,17 +1142,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         }
 
+
                         testimonialTrack.style.transform =
                             `translateX(${testimonialPosition}px)`;
+
                     }
 
                 }
+
 
                 requestAnimationFrame(
                     moveTestimonials
                 );
 
             }
+
 
             requestAnimationFrame(
                 moveTestimonials
